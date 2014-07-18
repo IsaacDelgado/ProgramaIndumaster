@@ -99,4 +99,10 @@ public class Conexion {
             }
     
     } 
+     public void Enlace()
+    {
+          Conexion.setCadena("jdbc:sqlite:C:\\Users\\V1C70R MU3N735\\Documents\\INDUMASTER");
+        Conexion.setUsuario("root");
+            Conexion.setPass(" ");
+    }
 }

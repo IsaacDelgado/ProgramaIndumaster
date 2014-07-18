@@ -17,13 +17,11 @@ import java.sql.SQLException;
 public class GestionCliente implements IGestiones {
 
     public GestionCliente() {
-        Conexion.setCadena("jdbc:sqlite:C:\\Users\\V1C70R MU3N735\\Documents\\INDUMASTER");
-        Conexion.setUsuario("root");
-        Conexion.setPass("");
+        Conexion.GetInstancia().Enlace();
         
     }
 
-    private Cliente client=new Cliente();
+    private Cliente client=new Cliente(null, ' ', null, null, null, null, null);
     public Cliente getCliente()
     {
     return client;
@@ -35,7 +33,16 @@ public class GestionCliente implements IGestiones {
     
     @Override
     public void Grabar() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    try{
+    Conexion.GetInstancia().Conectar();
+    Conexion.GetInstancia().Ejecutar("insert into cliente(cedula,nombres,apellidos,direccion,telefono,correo,sexo) values ('"+this.client.getCedula()+"','"+this.client.getNombres()+"','"+this.client.getApellidos()+"','"+this.client.getDireccion()+"','"+this.client.getTelefono()+"','"+this.client.getCorreo()+"',"+this.client.getSexo()+")");
+    Conexion.GetInstancia().Desconectar();
+    }
+    catch(SQLException e)
+    {
+    throw e;
+    }
     }
 
     @Override
