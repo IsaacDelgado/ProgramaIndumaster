@@ -86,7 +86,7 @@ public class GestionCliente implements IGestiones {
     Conexion.GetInstancia().Conectar();
     Conexion.GetInstancia().Ejecutar("delete FROM cliente WHERE cedula = "+client.getCedula());
     Conexion.GetInstancia().Desconectar();
-//    DELETE FROM `facturacion`.`cliente` WHERE `cliente`.`cedula` = \'123\'"
+
     }
     catch(SQLException e)
     {
