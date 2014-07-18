@@ -223,16 +223,19 @@ public void enviarValores(){
         gestClient.getCliente().setApellidos(txtApellido.getText());
         gestClient.getCliente().setDireccion(txtDireccion.getText());
         gestClient.getCliente().setTelefono(txtTelefono.getText());
-        gestClient.getCliente().setSexo(txtSexo.getText().charAt(0) );;
+        gestClient.getCliente().setCorreo(txtCorreo.getText());
+        gestClient.getCliente().setSexo(txtSexo.getText());
 
 }
 public void  pedirValores(){
         txtNombre.setText(gestClient.getCliente().getNombres()); 
+        txtApellido.setText(gestClient.getCliente().getApellidos()); 
         txtDireccion.setText(gestClient.getCliente().getDireccion());
- //       txtCupo.setText(Double.toString(gestClient.getCliente().getCupo()));
+        txtSexo.setText(gestClient.getCliente().getSexo());
         txtCedula.setText(gestClient.getCliente().getCedula());
-//        gestClient.getCliente().getDireccion();
-//        gestClient.getCliente().getCupo();
+        txtCorreo.setText(gestClient.getCliente().getCorreo()); 
+       txtTelefono.setText(gestClient.getCliente().getTelefono()); 
+        
         
 }
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed

@@ -12,7 +12,7 @@ package ClasesPOCO;
  */
 public class Persona {
 
-    public Persona(String direccion, char sexo, String telefono, String correo, String apellidos, String nombres, String cedula) {
+    public Persona(String direccion, String sexo, String telefono, String correo, String apellidos, String nombres, String cedula) {
         this.direccion = direccion;
         this.sexo = sexo;
         this.telefono = telefono;
@@ -42,14 +42,14 @@ public class Persona {
         this.direccion = direccion;
     }
 
-    private char sexo;
+    private String sexo;
 
     /**
      * Get the value of sexo
      *
      * @return the value of sexo
      */
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
@@ -58,7 +58,7 @@ public class Persona {
      *
      * @param sexo new value of sexo
      */
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 

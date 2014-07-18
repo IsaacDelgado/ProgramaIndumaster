@@ -99,9 +99,10 @@ public class Conexion {
             }
     
     } 
-     public void Enlace()
+     public void Enlace() throws ClassNotFoundException
     {
-          Conexion.setCadena("jdbc:sqlite:C:\\Users\\V1C70R MU3N735\\Documents\\INDUMASTER");
+        Class.forName("org.sqlite.JDBC");
+          Conexion.setCadena("jdbc:sqlite:C:\\Users\\V1C70R MU3N735\\Desktop\\pruebaIndumaster");
         Conexion.setUsuario("root");
             Conexion.setPass(" ");
     }

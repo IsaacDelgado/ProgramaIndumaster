@@ -12,7 +12,7 @@ package ClasesPOCO;
  */
 public class Cliente extends Persona{
 
-    public Cliente(String direccion, char sexo, String telefono, String correo, String apellidos, String nombres, String cedula) {
+    public Cliente(String direccion, String sexo, String telefono, String correo, String apellidos, String nombres, String cedula) {
         super(direccion, sexo, telefono, correo, apellidos, nombres, cedula);
     }
 
