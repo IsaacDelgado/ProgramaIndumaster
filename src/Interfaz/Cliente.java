@@ -223,9 +223,7 @@ public void enviarValores(){
         gestClient.getCliente().setApellidos(txtApellido.getText());
         gestClient.getCliente().setDireccion(txtDireccion.getText());
         gestClient.getCliente().setTelefono(txtTelefono.getText());
-         
-        
-       // gestClient.getCliente().setCupo(Double.parseDouble(txtCupo.getText()));
+        gestClient.getCliente().setSexo(txtSexo.getText().charAt(0) );;
 
 }
 public void  pedirValores(){
