@@ -18,13 +18,17 @@ public class Empleado extends Persona{
    
     private int idEmpleado;
 
-    public Empleado(String direccion, String sexo, String telefono, String correo, String apellidos, String nombres, String cedula, int idEmpleado,Date fechaNacimiento,Date fechaIngreso,String Cargo) {
+   
+
+    public Empleado(int idEmpleado, Date fechaNacimiento, Date fechaIngreso, String cargo, String direccion, String sexo, String telefono, String correo, String apellidos, String nombres, String cedula) {
         super(direccion, sexo, telefono, correo, apellidos, nombres, cedula);
-        setIdEmpleado(idEmpleado);
-        setFechaNacimiento(fechaNacimiento);
-        setFechaIngreso(fechaIngreso);
-        setCargo(cargo);
+        this.idEmpleado = idEmpleado;
+        this.fechaNacimiento = fechaNacimiento;
+        this.fechaIngreso = fechaIngreso;
+        this.cargo = cargo;
     }
+
+    
 
       
     /**

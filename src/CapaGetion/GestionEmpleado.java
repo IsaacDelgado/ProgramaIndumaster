@@ -7,6 +7,9 @@
 package CapaGetion;
 
 import CapaDatos.Conexion;
+
+import ClasesPOCO.Empleado;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,30 +29,102 @@ public class GestionEmpleado implements IGestiones{
         
         
     }
+     private Empleado empleado=new Empleado(0, null, null, null, null, null, null, null, null, null, null);
+    public Empleado getCliente()
+    {
+    return empleado;
+    }
+    public void setCliente(Empleado empleado)
+    {
+    this.empleado=empleado;
+    }
 
     @Override
     public void Grabar() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    try{
+    Conexion.GetInstancia().Conectar();
+    Conexion.GetInstancia().Ejecutar("insert into empleado(cedula,nombres,apellidos,direccion,telefono,correo,sexo,cargo,fechaIngreso,fechaNacimiento) values ('"+this.empleado.getCedula()+"','"+this.empleado.getNombres()+"','"+this.empleado.getApellidos()+"','"+this.empleado.getDireccion()+"','"+this.empleado.getTelefono()+"','"+this.empleado.getCorreo()+"','"+this.empleado.getSexo()+"','"+this.empleado.getCargo()+"','"+this.empleado.getFechaIngreso()+"',''"+this.empleado.getFechaNacimiento()+"')");
+    Conexion.GetInstancia().Desconectar();
+    }
+    catch(SQLException e)
+    {
+    throw e;
+    }
+    
     }
 
     @Override
     public void Modificar() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     try{
+    Conexion.GetInstancia().Conectar();
+    Conexion.GetInstancia().Ejecutar("update empleado SET nombres='"+this.empleado.getNombres()+"',apellidos='"+this.empleado.getApellidos()+"', direccion = '"+this.empleado.getDireccion()+"',telefono='"+this.empleado.getTelefono()+"',correo='"+this.empleado.getCorreo()+"', sexo = '"+this.empleado.getSexo()+"',cargo='"+this.empleado.getCargo()+"',fechaIngreso='"+this.empleado.getFechaIngreso()+"',fechaNacimiento='"+this.empleado.getFechaNacimiento()+"' WHERE cedula = "+this.empleado.getCedula());
+    Conexion.GetInstancia().Desconectar();
+    }
+    catch(SQLException e)
+    {
+    throw e;
+    }
     }
 
     @Override
     public void Nuevo() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     this.empleado.setCedula(" ");
+    this.empleado.setNombres(" ");
+    this.empleado.setApellidos(" ");
+    this.empleado.setDireccion(" ");
+    this.empleado.setTelefono(" ");
+    this.empleado.setCorreo(" ");
+    this.empleado.setSexo(" ");
+    this.empleado.setCargo(" ");
+    this.empleado.setFechaIngreso(null);
+    this.empleado.setFechaNacimiento(null);
     }
 
     @Override
     public void Eliminar() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     try{
+    Conexion.GetInstancia().Conectar();
+    Conexion.GetInstancia().Ejecutar("delete FROM empleado WHERE cedula = "+empleado.getCedula());
+    Conexion.GetInstancia().Desconectar();
+
+    }
+    catch(SQLException e)
+    {
+    throw e;
+    }
     }
 
     @Override
     public void Consultar() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    try{
+    Conexion.GetInstancia().Conectar();
+        ResultSet consulta=Conexion.GetInstancia().EjectConsulta("select * FROM empleado WHERE Cedula = "+empleado.getCedula());
+   while(consulta.next())
+   {
+    this.empleado.setCedula(consulta.getString(2));
+    this.empleado.setNombres(consulta.getString(3));
+    this.empleado.setApellidos(consulta.getString(4));
+    this.empleado.setDireccion(consulta.getString(5));
+    this.empleado.setTelefono(consulta.getString(6));
+    this.empleado.setCorreo(consulta.getString(7));
+    this.empleado.setSexo(consulta.getString(8));
+    this.empleado.setCargo(consulta.getString(9));
+    this.empleado.setFechaIngreso(consulta.getDate(10));
+    this.empleado.setFechaNacimiento(consulta.getDate(11));
+    
+   }
+        Conexion.GetInstancia().Desconectar();
+    }
+    catch(SQLException e)
+    {
+    throw e;
+    }
+    }
     }
     
-}
+
