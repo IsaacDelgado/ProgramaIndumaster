@@ -14,13 +14,13 @@ import javax.swing.JOptionPane;
  *
  * @author V1C70R MU3N735
  */
-public class Cliente extends javax.swing.JFrame {
+public class Empleado extends javax.swing.JFrame {
 
     /**
      * Creates new form Cliente
      */
     GestionCliente gestClient=new GestionCliente();
-    public Cliente() {
+    public Empleado() {
         initComponents();
     }
 
@@ -118,7 +118,7 @@ public class Cliente extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
-        jLabel8.setText("REGISTRO CLIENTE");
+        jLabel8.setText("REGISTRO EMPLEADO");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -353,20 +353,20 @@ public void  pedirValores(){
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Empleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Empleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Empleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Empleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cliente().setVisible(true);
+                new Empleado().setVisible(true);
             }
         });
     }
