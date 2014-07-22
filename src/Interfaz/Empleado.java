@@ -12,12 +12,20 @@ import javax.swing.JOptionPane;
 
 /**
  *
+<<<<<<< HEAD
  * @author V1C70R MU3N735
+=======
+ * @author Isaac
+>>>>>>> origin/master
  */
 public class Empleado extends javax.swing.JFrame {
 
     /**
+<<<<<<< HEAD
      * Creates new form Cliente
+=======
+     * Creates new form Empleado
+>>>>>>> origin/master
      */
     GestionCliente gestClient=new GestionCliente();
     public Empleado() {
@@ -33,6 +41,7 @@ public class Empleado extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+<<<<<<< HEAD
         btnRegistrar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
@@ -52,10 +61,32 @@ public class Empleado extends javax.swing.JFrame {
         txtTelefono = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
+=======
+        jLabel1 = new javax.swing.JLabel();
+        txtCedula = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtApellido = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtDireccion = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtTelefono = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtSexo = new javax.swing.JTextField();
+        btnAgregarEmpleado = new javax.swing.JButton();
+        btnEliminarEmpleado = new javax.swing.JButton();
+        btnEditarEmpleado = new javax.swing.JButton();
+        btnBuscarEmpleado = new javax.swing.JButton();
+        btnAgregarEmpleado3 = new javax.swing.JButton();
+>>>>>>> origin/master
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+<<<<<<< HEAD
         btnRegistrar.setText("Registrar");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,10 +122,13 @@ public class Empleado extends javax.swing.JFrame {
             }
         });
 
+=======
+>>>>>>> origin/master
         jLabel1.setText("cedula");
 
         jLabel2.setText("nombre");
 
+<<<<<<< HEAD
         jLabel3.setText("direccion");
 
         jLabel4.setText("sexo");
@@ -103,27 +137,63 @@ public class Empleado extends javax.swing.JFrame {
 
         jLabel6.setText("telefono");
 
+=======
+        jLabel5.setText("apellido");
+
+        jLabel3.setText("direccion");
+
+        jLabel6.setText("telefono");
+
+        jLabel7.setText("correo");
+
+>>>>>>> origin/master
         txtTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelefonoActionPerformed(evt);
             }
         });
 
+<<<<<<< HEAD
         jLabel7.setText("correo");
 
+=======
+>>>>>>> origin/master
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCorreoActionPerformed(evt);
             }
         });
 
+<<<<<<< HEAD
         jLabel8.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel8.setText("REGISTRO EMPLEADO");
+=======
+        jLabel4.setText("sexo");
+
+        btnAgregarEmpleado.setText("Agregar Empleado");
+        btnAgregarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarEmpleadoActionPerformed(evt);
+            }
+        });
+
+        btnEliminarEmpleado.setText("Eliminar Empleado");
+
+        btnEditarEmpleado.setText("Editar Empleado");
+
+        btnBuscarEmpleado.setText("Buscar Empleado");
+
+        btnAgregarEmpleado3.setText("Limpiar Ventana");
+
+        jLabel8.setFont(new java.awt.Font("Sketchy", 0, 18)); // NOI18N
+        jLabel8.setText("Registro de Empleados");
+>>>>>>> origin/master
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,6 +258,59 @@ public class Empleado extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jLabel8)
                 .addGap(26, 26, 26)
+=======
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnAgregarEmpleado)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEliminarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnBuscarEmpleado)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAgregarEmpleado3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnEditarEmpleado)
+                        .addGap(81, 81, 81))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(23, 23, 23))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtApellido)
+                                .addComponent(txtNombre)
+                                .addComponent(txtCedula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtCorreo)
+                                .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(50, 50, 50))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+>>>>>>> origin/master
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -207,6 +330,7 @@ public class Empleado extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -225,11 +349,46 @@ public class Empleado extends javax.swing.JFrame {
                     .addComponent(btnNuevo)
                     .addComponent(btnConsultar))
                 .addContainerGap())
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregarEmpleado)
+                    .addComponent(btnEliminarEmpleado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnEditarEmpleado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBuscarEmpleado)
+                    .addComponent(btnAgregarEmpleado3))
+                .addGap(5, 5, 5))
+>>>>>>> origin/master
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+<<<<<<< HEAD
 public void enviarValores(){
+=======
+
+    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoActionPerformed
+
+    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCorreoActionPerformed
+
+    private void btnAgregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEmpleadoActionPerformed
+        // TODO add your handling code here:
+>>>>>>> origin/master
         gestClient.getCliente().setCedula(txtCedula.getText());
         gestClient.getCliente().setNombres(txtNombre.getText());
         gestClient.getCliente().setApellidos(txtApellido.getText());
@@ -237,6 +396,7 @@ public void enviarValores(){
         gestClient.getCliente().setTelefono(txtTelefono.getText());
         gestClient.getCliente().setCorreo(txtCorreo.getText());
         gestClient.getCliente().setSexo(txtSexo.getText());
+<<<<<<< HEAD
 
 }
 public void  pedirValores(){
@@ -253,6 +413,8 @@ public void  pedirValores(){
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
         enviarValores();
+=======
+>>>>>>> origin/master
         
         try
         {
@@ -263,6 +425,7 @@ public void  pedirValores(){
         {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
+<<<<<<< HEAD
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -335,6 +498,9 @@ public void  pedirValores(){
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
+=======
+    }//GEN-LAST:event_btnAgregarEmpleadoActionPerformed
+>>>>>>> origin/master
 
     /**
      * @param args the command line arguments
@@ -372,11 +538,19 @@ public void  pedirValores(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnRegistrar;
+=======
+    private javax.swing.JButton btnAgregarEmpleado;
+    private javax.swing.JButton btnAgregarEmpleado3;
+    private javax.swing.JButton btnBuscarEmpleado;
+    private javax.swing.JButton btnEditarEmpleado;
+    private javax.swing.JButton btnEliminarEmpleado;
+>>>>>>> origin/master
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
