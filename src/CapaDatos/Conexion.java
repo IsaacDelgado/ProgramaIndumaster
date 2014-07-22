@@ -102,7 +102,7 @@ public class Conexion {
      public void Enlace() throws ClassNotFoundException
     {
         Class.forName("org.sqlite.JDBC");
-          Conexion.setCadena("jdbc:sqlite:C:\\Users\\V1C70R MU3N735\\Desktop\\pruebaIndumaster");
+          Conexion.setCadena("jdbc:sqlite:C:\\Users\\Isaac\\Desktop\\INDUMASTER");
         Conexion.setUsuario("root");
             Conexion.setPass(" ");
     }
