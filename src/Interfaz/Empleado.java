@@ -6,6 +6,10 @@
 
 package Interfaz;
 
+import CapaGetion.GestionCliente;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Isaac
@@ -15,6 +19,7 @@ public class Empleado extends javax.swing.JFrame {
     /**
      * Creates new form Empleado
      */
+    GestionCliente gestClient=new GestionCliente();
     public Empleado() {
         initComponents();
     }
@@ -78,6 +83,11 @@ public class Empleado extends javax.swing.JFrame {
         jLabel4.setText("sexo");
 
         btnAgregarEmpleado.setText("Agregar Empleado");
+        btnAgregarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarEmpleadoActionPerformed(evt);
+            }
+        });
 
         btnEliminarEmpleado.setText("Eliminar Empleado");
 
@@ -195,6 +205,27 @@ public class Empleado extends javax.swing.JFrame {
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
+
+    private void btnAgregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEmpleadoActionPerformed
+        // TODO add your handling code here:
+        gestClient.getCliente().setCedula(txtCedula.getText());
+        gestClient.getCliente().setNombres(txtNombre.getText());
+        gestClient.getCliente().setApellidos(txtApellido.getText());
+        gestClient.getCliente().setDireccion(txtDireccion.getText());
+        gestClient.getCliente().setTelefono(txtTelefono.getText());
+        gestClient.getCliente().setCorreo(txtCorreo.getText());
+        gestClient.getCliente().setSexo(txtSexo.getText());
+        
+        try
+        {
+        gestClient.Grabar();
+        JOptionPane.showMessageDialog(this, "El dato se grabo Correctamente");
+        }
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_btnAgregarEmpleadoActionPerformed
 
     /**
      * @param args the command line arguments
