@@ -6,10 +6,6 @@
 
 package Interfaz;
 
-import CapaGetion.GestionCliente;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-
 /**
  *
 <<<<<<< HEAD
@@ -27,7 +23,6 @@ public class Empleado extends javax.swing.JFrame {
      * Creates new form Empleado
 >>>>>>> origin/master
      */
-    GestionCliente gestClient=new GestionCliente();
     public Empleado() {
         initComponents();
     }
@@ -171,11 +166,6 @@ public class Empleado extends javax.swing.JFrame {
         jLabel4.setText("sexo");
 
         btnAgregarEmpleado.setText("Agregar Empleado");
-        btnAgregarEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarEmpleadoActionPerformed(evt);
-            }
-        });
 
         btnEliminarEmpleado.setText("Eliminar Empleado");
 
@@ -386,6 +376,7 @@ public void enviarValores(){
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
 
+<<<<<<< HEAD
     private void btnAgregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEmpleadoActionPerformed
         // TODO add your handling code here:
 >>>>>>> origin/master
@@ -502,6 +493,8 @@ public void  pedirValores(){
     }//GEN-LAST:event_btnAgregarEmpleadoActionPerformed
 >>>>>>> origin/master
 
+=======
+>>>>>>> 2378177c1eb305880e55739263c7f440b1fc07a3
     /**
      * @param args the command line arguments
      */
