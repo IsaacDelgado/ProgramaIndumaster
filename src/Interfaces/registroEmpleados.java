@@ -6,6 +6,10 @@
 
 package Interfaces;
 
+import CapaGetion.GestionEmpleado;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Maria Belen
@@ -107,15 +111,35 @@ public class registroEmpleados extends javax.swing.JFrame {
 
         btnregistrar.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
         btnregistrar.setText("Registrar");
+        btnregistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregistrarActionPerformed(evt);
+            }
+        });
 
         btneliminar.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
         btneliminar.setText("Eliminar");
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarActionPerformed(evt);
+            }
+        });
 
         btnlimpiar.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
         btnlimpiar.setText("Limpiar");
+        btnlimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlimpiarActionPerformed(evt);
+            }
+        });
 
         btnmodificar.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
         btnmodificar.setText("Modificar");
+        btnmodificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmodificarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -234,10 +258,95 @@ public class registroEmpleados extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public void enviarValores(){
+        GE.getEmpleado().setCedula(txtcedula.getText());
+        GE.getEmpleado().setNombres(txtnombre.getText());
+        GE.getEmpleado().setApellidos(txtapellidos.getText());
+        GE.getEmpleado().setDireccion(txtdireccion.getText());
+        GE.getEmpleado().setCorreo(txtcorreo.getText());
+        GE.getEmpleado().setTelefono(txttelefono.getText());
+        GE.getEmpleado().setSexo(txtsexo.getText());
+        //GE.getEmpleado().setFechaIngreso(txtfechaingreso.getText());
+        //GE.getEmpleado().setFechaNacimiento(txtfechadenacimiento.getText());
+       GE.getEmpleado().setCargo(txtcargo.getText());
+    }
+    public void pedirValores(){
+        txtcedula.setText(GE.getEmpleado().getCedula());
+        txtnombre.setText(GE.getEmpleado().getNombres());
+        txtapellidos.setText(GE.getEmpleado().getApellidos());
+        txtdireccion.setText(GE.getEmpleado().getDireccion());
+        txtcorreo.setText(GE.getEmpleado().getCorreo());
+        txttelefono.setText(GE.getEmpleado().getTelefono());
+        txtsexo.setText(GE.getEmpleado().getSexo());
+        txtcargo.setText(GE.getEmpleado().getCargo());
+        //txtfechaingreso.setText(GE.getEmpleado().getFechaIngreso());
+        //txtfechadenacimiento.setText(GE.getEmpleado().getFechaNacimiento());
+    }
+   
     private void btnconsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconsultarActionPerformed
         GE.getEmpleado().setCedula(txtcedula.getText());
+        try
+        {
+          GE.Consultar();
+            pedirValores();
+          
+        }
+        catch(SQLException ex){
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
     }//GEN-LAST:event_btnconsultarActionPerformed
+
+    private void btnregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarActionPerformed
+        enviarValores();
+        try
+        {
+        GE.Grabar();   
+            JOptionPane.showMessageDialog(this, "El dato se registro correctamente");
+        }
+        catch(SQLException ex)
+        {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+            
+        }
+    }//GEN-LAST:event_btnregistrarActionPerformed
+
+    private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
+        enviarValores();
+        try
+        {
+            GE.Modificar();
+            JOptionPane.showMessageDialog(this, "El dato se elimino correctamente");
+        }
+        catch(SQLException ex)
+        {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }       
+    }//GEN-LAST:event_btnmodificarActionPerformed
+
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+     enviarValores();
+      try
+        {
+            GE.Eliminar();
+            JOptionPane.showMessageDialog(this, "El dato se eliminó correctamente");
+        }
+        catch(SQLException ex)
+        {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    }//GEN-LAST:event_btneliminarActionPerformed
+
+    private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
+      try{
+          GE.Nuevo();
+          pedirValores();
+         
+      }
+      catch(SQLException ex)
+        {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    }//GEN-LAST:event_btnlimpiarActionPerformed
 
     /**
      * @param args the command line arguments

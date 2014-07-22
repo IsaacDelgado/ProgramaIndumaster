@@ -30,11 +30,11 @@ public class GestionEmpleado implements IGestiones{
         
     }
      private Empleado empleado=new Empleado(0, null, null, null, null, null, null, null, null, null, null);
-    public Empleado getCliente()
+    public Empleado getEmpleado()
     {
     return empleado;
     }
-    public void setCliente(Empleado empleado)
+    public void setEmpleado(Empleado empleado)
     {
     this.empleado=empleado;
     }
