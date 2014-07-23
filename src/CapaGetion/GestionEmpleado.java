@@ -79,8 +79,8 @@ public class GestionEmpleado implements IGestiones{
     this.empleado.setCorreo(" ");
     this.empleado.setSexo(" ");
     this.empleado.setCargo(" ");
-    this.empleado.setFechaIngreso(null);
-    this.empleado.setFechaNacimiento(null);
+    this.empleado.setFechaIngreso(" ");
+    this.empleado.setFechaNacimiento(" ");
     }
 
     @Override
@@ -114,8 +114,8 @@ public class GestionEmpleado implements IGestiones{
     this.empleado.setCorreo(consulta.getString(7));
     this.empleado.setSexo(consulta.getString(8));
     this.empleado.setCargo(consulta.getString(9));
-    this.empleado.setFechaIngreso(consulta.getDate(10));
-    this.empleado.setFechaNacimiento(consulta.getDate(11));
+    this.empleado.setFechaIngreso(consulta.getString(10));
+    this.empleado.setFechaNacimiento(consulta.getString(11));
     
    }
         Conexion.GetInstancia().Desconectar();
