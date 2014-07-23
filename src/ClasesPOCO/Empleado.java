@@ -14,19 +14,21 @@ import java.sql.Date;
  */
 public class Empleado extends Persona{
 
-  
-   
-    private int idEmpleado;
-
-   
-
-    public Empleado(int idEmpleado, Date fechaNacimiento, Date fechaIngreso, String cargo, String direccion, String sexo, String telefono, String correo, String apellidos, String nombres, String cedula) {
+    public Empleado(int idEmpleado, String fechaNacimiento, String fechaIngreso, String cargo, String direccion, String sexo, String telefono, String correo, String apellidos, String nombres, String cedula) {
         super(direccion, sexo, telefono, correo, apellidos, nombres, cedula);
         this.idEmpleado = idEmpleado;
         this.fechaNacimiento = fechaNacimiento;
         this.fechaIngreso = fechaIngreso;
         this.cargo = cargo;
     }
+
+  
+   
+    private int idEmpleado;
+
+   
+
+    
 
     
 
@@ -49,14 +51,14 @@ public class Empleado extends Persona{
         this.idEmpleado = idEmpleado;
     }
 
-    private Date fechaNacimiento;
+    private String fechaNacimiento;
 
     /**
      * Get the value of fechaNacimiento
      *
      * @return the value of fechaNacimiento
      */
-    public Date getFechaNacimiento() {
+    public String getFechaNacimiento() {
         return fechaNacimiento;
     }
 
@@ -65,18 +67,18 @@ public class Empleado extends Persona{
      *
      * @param fechaNacimiento new value of fechaNacimiento
      */
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    private Date fechaIngreso;
+    private String fechaIngreso;
 
     /**
      * Get the value of fechaIngreso
      *
      * @return the value of fechaIngreso
      */
-    public Date getFechaIngreso() {
+    public String getFechaIngreso() {
         return fechaIngreso;
     }
 
@@ -85,7 +87,7 @@ public class Empleado extends Persona{
      *
      * @param fechaIngreso new value of fechaIngreso
      */
-    public void setFechaIngreso(Date fechaIngreso) {
+    public void setFechaIngreso(String fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 
