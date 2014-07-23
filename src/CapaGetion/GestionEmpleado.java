@@ -71,18 +71,18 @@ public class GestionEmpleado implements IGestiones{
     @Override
     public void Nuevo() throws SQLException {
     //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-     this.empleado.setCedula(" ");
-    this.empleado.setNombres(" ");
-    this.empleado.setApellidos(" ");
-    this.empleado.setDireccion(" ");
-    this.empleado.setTelefono(" ");
-    this.empleado.setCorreo(" ");
-    this.empleado.setSexo(" ");
-    this.empleado.setCargo(" ");
-    this.empleado.setFechaIngreso(" ");
-    this.empleado.setFechaNacimiento(" ");
-    this.empleado.setUsuario(" ");
-    this.empleado.setPass(" ");
+    this.empleado.setCedula("");
+    this.empleado.setNombres("");
+    this.empleado.setApellidos("");
+    this.empleado.setDireccion("");
+    this.empleado.setTelefono("");
+    this.empleado.setCorreo("");
+    this.empleado.setSexo("");
+    this.empleado.setCargo("");
+    this.empleado.setFechaIngreso("");
+    this.empleado.setFechaNacimiento("");
+    this.empleado.setUsuario("");
+    this.empleado.setPass("");
     }
 
     @Override
