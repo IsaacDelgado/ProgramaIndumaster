@@ -12,7 +12,8 @@ package ClasesPOCO;
  */
 public class Producto {
 
-    public Producto(String nombre, int id, double costo, double iva, int numSerie, double precio, double precioEspecial) {
+    public Producto(String descripcion, String nombre, int id, double costo, double iva, String numSerie, double precio, double precioEspecial) {
+        this.descripcion = descripcion;
         this.nombre = nombre;
         this.id = id;
         this.costo = costo;
@@ -22,7 +23,28 @@ public class Producto {
         this.precioEspecial = precioEspecial;
     }
 
-    
+   
+
+        private String descripcion;
+
+    /**
+     * Get the value of descripcion
+     *
+     * @return the value of descripcion
+     */
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    /**
+     * Set the value of descripcion
+     *
+     * @param descripcion new value of descripcion
+     */
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
     
         private String nombre;
 
@@ -105,14 +127,14 @@ public class Producto {
         this.iva = iva;
     }
 
-    private int numSerie;
+    private String numSerie;
 
     /**
      * Get the value of numSerie
      *
      * @return the value of numSerie
      */
-    public int getNumSerie() {
+    public String getNumSerie() {
         return numSerie;
     }
 
@@ -121,7 +143,7 @@ public class Producto {
      *
      * @param numSerie new value of numSerie
      */
-    public void setNumSerie(int numSerie) {
+    public void setNumSerie(String numSerie) {
         this.numSerie = numSerie;
     }
     
