@@ -32,7 +32,8 @@ public class menu extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItemAdmin = new javax.swing.JMenuItem();
+        jMenuItemEmpleado = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,13 +55,16 @@ public class menu extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem1.setText("abrir");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/loginAdmin.png"))); // NOI18N
+        jMenuItemAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jMenuItemAdminActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(jMenuItemAdmin);
+
+        jMenuItemEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/EMPLEADO LOGIN.png"))); // NOI18N
+        jMenu1.add(jMenuItemEmpleado);
 
         jMenuBar1.add(jMenu1);
 
@@ -92,12 +96,12 @@ public class menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenu1ActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jMenuItemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAdminActionPerformed
         // TODO add your handling code here:
         registroEmpleado a =new registroEmpleado();
         jDesktopPane1.add(a);
         a.show();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_jMenuItemAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,6 +142,7 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItemAdmin;
+    private javax.swing.JMenuItem jMenuItemEmpleado;
     // End of variables declaration//GEN-END:variables
 }
