@@ -29,7 +29,7 @@ public class GestionEmpleado implements IGestiones{
         
         
     }
-     private Empleado empleado=new Empleado(0, null, null, null, null, null, null, null, null, null, null);
+     private Empleado empleado=new Empleado(0, null, null, null, null, null, null, null, null, null, null,null,null);
     public Empleado getEmpleado()
     {
     return empleado;
@@ -44,7 +44,7 @@ public class GestionEmpleado implements IGestiones{
      //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     try{
     Conexion.GetInstancia().Conectar();
-    Conexion.GetInstancia().Ejecutar("insert into empleado(cedula,nombres,apellidos,direccion,telefono,correo,sexo,cargo,fechaIngreso,fechaNacimiento) values ('"+this.empleado.getCedula()+"','"+this.empleado.getNombres()+"','"+this.empleado.getApellidos()+"','"+this.empleado.getDireccion()+"','"+this.empleado.getTelefono()+"','"+this.empleado.getCorreo()+"','"+this.empleado.getSexo()+"','"+this.empleado.getCargo()+"','"+this.empleado.getFechaIngreso()+"','"+this.empleado.getFechaNacimiento()+"')");
+    Conexion.GetInstancia().Ejecutar("insert into empleado(cedula,nombres,apellidos,direccion,telefono,correo,sexo,cargo,fechaIngreso,fechaNacimiento,usuario,pass) values ('"+this.empleado.getCedula()+"','"+this.empleado.getNombres()+"','"+this.empleado.getApellidos()+"','"+this.empleado.getDireccion()+"','"+this.empleado.getTelefono()+"','"+this.empleado.getCorreo()+"','"+this.empleado.getSexo()+"','"+this.empleado.getCargo()+"','"+this.empleado.getFechaIngreso()+"','"+this.empleado.getFechaNacimiento()+"','"+this.empleado.getUsuario()+"','"+this.empleado.getPass()+"')");
     Conexion.GetInstancia().Desconectar();
     }
     catch(SQLException e)
@@ -59,7 +59,7 @@ public class GestionEmpleado implements IGestiones{
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
      try{
     Conexion.GetInstancia().Conectar();
-    Conexion.GetInstancia().Ejecutar("update empleado SET nombres='"+this.empleado.getNombres()+"',apellidos='"+this.empleado.getApellidos()+"', direccion = '"+this.empleado.getDireccion()+"',telefono='"+this.empleado.getTelefono()+"',correo='"+this.empleado.getCorreo()+"', sexo = '"+this.empleado.getSexo()+"',cargo='"+this.empleado.getCargo()+"',fechaIngreso='"+this.empleado.getFechaIngreso()+"',fechaNacimiento='"+this.empleado.getFechaNacimiento()+"' WHERE cedula = "+this.empleado.getCedula());
+    Conexion.GetInstancia().Ejecutar("update empleado SET nombres='"+this.empleado.getNombres()+"',apellidos='"+this.empleado.getApellidos()+"', direccion = '"+this.empleado.getDireccion()+"',telefono='"+this.empleado.getTelefono()+"',correo='"+this.empleado.getCorreo()+"', sexo = '"+this.empleado.getSexo()+"',cargo='"+this.empleado.getCargo()+"',fechaIngreso='"+this.empleado.getFechaIngreso()+"',fechaNacimiento='"+this.empleado.getFechaNacimiento()+"' , usuario='"+this.empleado.getUsuario()+"' , pass= '"+this.empleado.getPass()+"' WHERE cedula = "+this.empleado.getCedula());
     Conexion.GetInstancia().Desconectar();
     }
     catch(SQLException e)
@@ -81,6 +81,8 @@ public class GestionEmpleado implements IGestiones{
     this.empleado.setCargo(" ");
     this.empleado.setFechaIngreso(" ");
     this.empleado.setFechaNacimiento(" ");
+    this.empleado.setUsuario(" ");
+    this.empleado.setPass(" ");
     }
 
     @Override
@@ -116,6 +118,8 @@ public class GestionEmpleado implements IGestiones{
     this.empleado.setCargo(consulta.getString(9));
     this.empleado.setFechaIngreso(consulta.getString(10));
     this.empleado.setFechaNacimiento(consulta.getString(11));
+    this.empleado.setUsuario(consulta.getString(12));
+    this.empleado.setPass(consulta.getString(13));
     
    }
         Conexion.GetInstancia().Desconectar();

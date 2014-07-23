@@ -14,13 +14,17 @@ import java.sql.Date;
  */
 public class Empleado extends Persona{
 
-    public Empleado(int idEmpleado, String fechaNacimiento, String fechaIngreso, String cargo, String direccion, String sexo, String telefono, String correo, String apellidos, String nombres, String cedula) {
+    public Empleado(int idEmpleado, String fechaNacimiento, String fechaIngreso, String cargo, String usuario, String pass, String direccion, String sexo, String telefono, String correo, String apellidos, String nombres, String cedula) {
         super(direccion, sexo, telefono, correo, apellidos, nombres, cedula);
         this.idEmpleado = idEmpleado;
         this.fechaNacimiento = fechaNacimiento;
         this.fechaIngreso = fechaIngreso;
         this.cargo = cargo;
+        this.usuario = usuario;
+        this.pass = pass;
     }
+
+   
 
   
    
@@ -109,6 +113,46 @@ public class Empleado extends Persona{
      */
     public void setCargo(String cargo) {
         this.cargo = cargo;
+    }
+
+        private String usuario;
+
+    /**
+     * Get the value of usuario
+     *
+     * @return the value of usuario
+     */
+    public String getUsuario() {
+        return usuario;
+    }
+
+    /**
+     * Set the value of usuario
+     *
+     * @param usuario new value of usuario
+     */
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+    
+        private String pass;
+
+    /**
+     * Get the value of pass
+     *
+     * @return the value of pass
+     */
+    public String getPass() {
+        return pass;
+    }
+
+    /**
+     * Set the value of pass
+     *
+     * @param pass new value of pass
+     */
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
 }
