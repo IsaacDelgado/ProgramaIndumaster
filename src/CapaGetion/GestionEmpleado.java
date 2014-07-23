@@ -44,7 +44,7 @@ public class GestionEmpleado implements IGestiones{
      //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     try{
     Conexion.GetInstancia().Conectar();
-    Conexion.GetInstancia().Ejecutar("insert into empleado(cedula,nombres,apellidos,direccion,telefono,correo,sexo,cargo,fechaIngreso,fechaNacimiento) values ('"+this.empleado.getCedula()+"','"+this.empleado.getNombres()+"','"+this.empleado.getApellidos()+"','"+this.empleado.getDireccion()+"','"+this.empleado.getTelefono()+"','"+this.empleado.getCorreo()+"','"+this.empleado.getSexo()+"','"+this.empleado.getCargo()+"','"+this.empleado.getFechaIngreso()+"',''"+this.empleado.getFechaNacimiento()+"')");
+    Conexion.GetInstancia().Ejecutar("insert into empleado(cedula,nombres,apellidos,direccion,telefono,correo,sexo,cargo,fechaIngreso,fechaNacimiento) values ('"+this.empleado.getCedula()+"','"+this.empleado.getNombres()+"','"+this.empleado.getApellidos()+"','"+this.empleado.getDireccion()+"','"+this.empleado.getTelefono()+"','"+this.empleado.getCorreo()+"','"+this.empleado.getSexo()+"','"+this.empleado.getCargo()+"','"+this.empleado.getFechaIngreso()+"','"+this.empleado.getFechaNacimiento()+"')");
     Conexion.GetInstancia().Desconectar();
     }
     catch(SQLException e)
