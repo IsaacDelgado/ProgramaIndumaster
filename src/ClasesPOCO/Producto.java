@@ -12,7 +12,8 @@ package ClasesPOCO;
  */
 public class Producto {
 
-    public Producto(int id, double costo, double iva, int numSerie, double precio, double precioEspecial) {
+    public Producto(String nombre, int id, double costo, double iva, int numSerie, double precio, double precioEspecial) {
+        this.nombre = nombre;
         this.id = id;
         this.costo = costo;
         this.iva = iva;
@@ -20,8 +21,29 @@ public class Producto {
         this.precio = precio;
         this.precioEspecial = precioEspecial;
     }
+
     
     
+        private String nombre;
+
+    /**
+     * Get the value of nombre
+     *
+     * @return the value of nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * Set the value of nombre
+     *
+     * @param nombre new value of nombre
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     
     private int id;
 
