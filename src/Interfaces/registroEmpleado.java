@@ -259,7 +259,7 @@ public class registroEmpleado extends javax.swing.JInternalFrame {
                     .addComponent(btnregistrar)
                     .addComponent(btnmodificar)
                     .addComponent(btncerrar))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
@@ -273,8 +273,8 @@ public class registroEmpleado extends javax.swing.JInternalFrame {
         GE.getEmpleado().setCorreo(txtcorreo.getText());
         GE.getEmpleado().setTelefono(txttelefono.getText());
         GE.getEmpleado().setSexo(txtsexo.getText());
-        //GE.getEmpleado().setFechaIngreso(txtfechaingreso.getText());
-        //GE.getEmpleado().setFechaNacimiento(txtfechadenacimiento.getText());
+        GE.getEmpleado().setFechaIngreso(txtfechaingreso.getText());
+        GE.getEmpleado().setFechaNacimiento(txtfechadenacimiento.getText());
        GE.getEmpleado().setCargo(txtcargo.getText());
     }
     public void pedirValores(){
@@ -286,8 +286,8 @@ public class registroEmpleado extends javax.swing.JInternalFrame {
         txttelefono.setText(GE.getEmpleado().getTelefono());
         txtsexo.setText(GE.getEmpleado().getSexo());
         txtcargo.setText(GE.getEmpleado().getCargo());
-        //txtfechaingreso.setText(GE.getEmpleado().getFechaIngreso());
-        //txtfechadenacimiento.setText(GE.getEmpleado().getFechaNacimiento());
+        txtfechaingreso.setText(GE.getEmpleado().getFechaIngreso());
+        txtfechadenacimiento.setText(GE.getEmpleado().getFechaNacimiento());
     }
     
     private void btnconsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconsultarActionPerformed
