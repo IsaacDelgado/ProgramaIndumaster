@@ -67,6 +67,8 @@ public class registroEmpleado extends javax.swing.JInternalFrame {
         txtusuario = new javax.swing.JTextField();
         txtpass = new javax.swing.JTextField();
 
+        setTitle("Registros de Empleado");
+
         txtcargo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcargoActionPerformed(evt);

@@ -16,6 +16,7 @@ public class menu extends javax.swing.JFrame {
      * Creates new form menu
      */
     public menu() {
+        setUndecorated(true);
         initComponents();
         setLocationRelativeTo(null);
         
@@ -31,10 +32,11 @@ public class menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jDPEscritorio = new javax.swing.JDesktopPane();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        jMBMenu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItemAdmin = new javax.swing.JMenuItem();
         jMenuItemEmpleado = new javax.swing.JMenuItem();
+        jMenuItemSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,9 +69,17 @@ public class menu extends javax.swing.JFrame {
         jMenuItemEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/EMPLEADO LOGIN.png"))); // NOI18N
         jMenu1.add(jMenuItemEmpleado);
 
-        jMenuBar1.add(jMenu1);
+        jMenuItemSalir.setText("Salir");
+        jMenuItemSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSalirActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemSalir);
 
-        setJMenuBar(jMenuBar1);
+        jMBMenu.add(jMenu1);
+
+        setJMenuBar(jMBMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,6 +113,11 @@ public class menu extends javax.swing.JFrame {
         jDPEscritorio.add(a);
         a.show();
     }//GEN-LAST:event_jMenuItemAdminActionPerformed
+
+    private void jMenuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSalirActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItemSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,9 +156,10 @@ public class menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDesktopPane jDPEscritorio;
+    private javax.swing.JMenuBar jMBMenu;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItemAdmin;
     private javax.swing.JMenuItem jMenuItemEmpleado;
+    private javax.swing.JMenuItem jMenuItemSalir;
     // End of variables declaration//GEN-END:variables
 }
