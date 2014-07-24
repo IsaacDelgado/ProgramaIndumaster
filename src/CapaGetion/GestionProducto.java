@@ -55,7 +55,20 @@ public class GestionProducto implements IGestiones{
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     try{
     Conexion.GetInstancia().Conectar();
-    Conexion.GetInstancia().Ejecutar("insert into producto(nombre,descripcion,costo,numeroSerie) values ('"+this.producto.getNombre()+"','"+this.producto.getDescripcion()+"','"+this.producto.getCosto()+"','"+this.producto.getNumSerie()+"')");
+    Conexion.GetInstancia().Ejecutar("insert into producto(nombre,descripcion,costo,numeroSerie) values ('"+this.producto.getNombre()+"','"+this.producto.getDescripcion()+"',"+this.producto.getCosto()+",'"+this.producto.getNumSerie()+"')");
+    Conexion.GetInstancia().Desconectar();
+    }
+    catch(SQLException e)
+    {
+    throw e;
+    }
+    }
+    public void GrabarPrecios() throws SQLException {
+      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    try{
+    Conexion.GetInstancia().Conectar();
+    Conexion.GetInstancia().Ejecutar("insert into producto(nombre,descripcion,costo,numeroSerie,iva,precio,precioEspecial) values ('"+this.producto.getNombre()+"','"+this.producto.getDescripcion()+"',"+this.producto.getCosto()+",'"+this.producto.getNumSerie()+"',"+this.producto.getIva()+","+this.producto.getPrecio()+","+this.producto.getPrecioEspecial()+")");
     Conexion.GetInstancia().Desconectar();
     }
     catch(SQLException e)
@@ -71,7 +84,7 @@ public class GestionProducto implements IGestiones{
     
     try{
     Conexion.GetInstancia().Conectar();
-    Conexion.GetInstancia().Ejecutar("update producto SET nombre='"+this.producto.getNombre()+"',descripcion='"+this.producto.getDescripcion()+"',costo="+this.producto.getCosto()+", numeroSerie = '"+this.producto.getNumSerie()+"' WHERE numeroSerie = "+this.producto.getNumSerie());
+    Conexion.GetInstancia().Ejecutar("update producto SET nombre='"+this.producto.getNombre()+"',descripcion='"+this.producto.getDescripcion()+"',costo="+this.producto.getCosto()+", numeroSerie = '"+this.producto.getNumSerie()+"',iva="+this.producto.getIva()+",precio="+this.producto.getPrecio()+",precioEspecial="+this.producto.getPrecioEspecial()+" WHERE numeroSerie = "+this.producto.getNumSerie());
     Conexion.GetInstancia().Desconectar();
     }
     catch(SQLException e)
@@ -79,6 +92,7 @@ public class GestionProducto implements IGestiones{
     throw e;
     }
     }
+    
 
     @Override
     public void Nuevo() throws SQLException {
