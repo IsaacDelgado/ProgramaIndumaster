@@ -55,7 +55,7 @@ public class GestionProducto implements IGestiones{
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     try{
     Conexion.GetInstancia().Conectar();
-    Conexion.GetInstancia().Ejecutar("insert into producto(nombre,descripcion,costo,numeroSerie,precioEspecial) values ('"+this.producto.getCosto()+"','"+this.producto.getDescripcion()+"','"+this.producto.getNombre()+"','"+this.producto.getNumSerie()+"',"+this.producto.getPrecioEspecial()+")");
+    Conexion.GetInstancia().Ejecutar("insert into producto(nombre,descripcion,costo,numeroSerie) values ('"+this.producto.getNombre()+"','"+this.producto.getDescripcion()+"','"+this.producto.getCosto()+"','"+this.producto.getNumSerie()+"')");
     Conexion.GetInstancia().Desconectar();
     }
     catch(SQLException e)
@@ -71,7 +71,7 @@ public class GestionProducto implements IGestiones{
     
     try{
     Conexion.GetInstancia().Conectar();
-    Conexion.GetInstancia().Ejecutar("update producto SET nombre='"+this.producto.getNombre()+"',descripcion='"+this.producto.getDescripcion()+"',costo="+this.producto.getCosto()+", numeroSerie = '"+this.producto.getNumSerie()+"' WHERE cedula = "+this.producto.getNumSerie());
+    Conexion.GetInstancia().Ejecutar("update producto SET nombre='"+this.producto.getNombre()+"',descripcion='"+this.producto.getDescripcion()+"',costo="+this.producto.getCosto()+", numeroSerie = '"+this.producto.getNumSerie()+"' WHERE numeroSerie = "+this.producto.getNumSerie());
     Conexion.GetInstancia().Desconectar();
     }
     catch(SQLException e)
@@ -100,7 +100,7 @@ public class GestionProducto implements IGestiones{
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
      try{
     Conexion.GetInstancia().Conectar();
-    Conexion.GetInstancia().Ejecutar("delete FROM producto WHERE cedula = "+producto.getNumSerie());
+    Conexion.GetInstancia().Ejecutar("delete FROM producto WHERE numeroSerie = "+producto.getNumSerie());
     Conexion.GetInstancia().Desconectar();
 
     }
@@ -116,16 +116,17 @@ public class GestionProducto implements IGestiones{
       //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
      try{
     Conexion.GetInstancia().Conectar();
-        ResultSet consulta=Conexion.GetInstancia().EjectConsulta("select * FROM producto WHERE Cedula = "+producto.getNumSerie());
+        ResultSet consulta=Conexion.GetInstancia().EjectConsulta("select * FROM producto WHERE numeroSerie = "+producto.getNumSerie());
    while(consulta.next())
    {
-    this.producto.setCosto(consulta.getDouble(2));
-    this.producto.setNombre(consulta.getString(3));
-    this.producto.setNumSerie(consulta.getString(4));
-    this.producto.setIva(consulta.getDouble(5));
-    this.producto.setPrecio(consulta.getDouble(6));
-    this.producto.setPrecioEspecial(consulta.getDouble(7));
+   this.producto.setNumSerie(consulta.getString(4));
+    this.producto.setNombre(consulta.getString(7));
     this.producto.setDescripcion(consulta.getString(8));
+     this.producto.setCosto(consulta.getDouble(2));
+    this.producto.setIva(consulta.getDouble(3));
+    this.producto.setPrecio(consulta.getDouble(5));
+    this.producto.setPrecioEspecial(consulta.getDouble(6));
+    
     
    }
         Conexion.GetInstancia().Desconectar();
