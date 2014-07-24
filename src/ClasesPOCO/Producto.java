@@ -115,6 +115,7 @@ public class Producto {
      * @return the value of iva
      */
     public double getIva() {
+        
         return iva;
     }
 
@@ -124,6 +125,7 @@ public class Producto {
      * @param iva new value of iva
      */
     public void setIva(double iva) {
+        iva=costo*0.12;
         this.iva = iva;
     }
 
@@ -155,6 +157,7 @@ public class Producto {
      * @return the value of precio
      */
     public double getPrecio() {
+       
         return precio;
     }
 
@@ -164,6 +167,7 @@ public class Producto {
      * @param precio new value of precio
      */
     public void setPrecio(double precio) {
+        precio=costo+iva;
         this.precio = precio;
     }
 
