@@ -202,12 +202,21 @@
     <Component class="javax.swing.JTextField" name="txtnserie">
     </Component>
     <Component class="javax.swing.JTextField" name="txtprecioespecial">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtiva">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtcostos">
     </Component>
     <Component class="javax.swing.JTextField" name="txtprecio">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtnombreproducto">
     </Component>

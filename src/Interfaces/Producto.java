@@ -75,6 +75,12 @@ public class Producto extends javax.swing.JInternalFrame {
         jLabel7.setFont(new java.awt.Font("Cambria Math", 3, 18)); // NOI18N
         jLabel7.setText("iva");
 
+        txtprecioespecial.setEnabled(false);
+
+        txtiva.setEnabled(false);
+
+        txtprecio.setEnabled(false);
+
         jLabel8.setFont(new java.awt.Font("Cambria Math", 3, 18)); // NOI18N
         jLabel8.setText("Nombre del Producto");
 
@@ -231,12 +237,11 @@ public class Producto extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
  public void enviarValores(){
         GP.getProducto().setNumSerie(txtnserie.getText());
-        GP.getProducto().setIva(Double.parseDouble(txtiva.getText()));
+        
         GP.getProducto().setCosto(Double.parseDouble(txtcostos.getText()));
         GP.getProducto().setDescripcion(txtdescripcion.getText());
         GP.getProducto().setNombre(txtnombreproducto.getText());
-        GP.getProducto().setPrecio(Double.parseDouble(txtprecio.getText()));
-        GP.getProducto().setPrecioEspecial(Double.parseDouble(txtprecioespecial.getText()));
+       
       
  }
  public void pedirValores(){
