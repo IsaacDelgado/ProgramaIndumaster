@@ -106,8 +106,8 @@ public class Conexion {
         //Conexion.setCadena("jdbc:sqlite:C:\\Users\\Maria Belen\\Desktop\\INDUMASTERSA");
         //CONEXION VICTOR
         //Conexion.setCadena("jdbc:sqlite:C:\\Users\\V1C70R MU3N735\\Desktop\\INDUMASTER");
-        
-        Conexion.setCadena("jdbc:sqlite:C:\\Users\\V1C70R MU3N735\\Desktop\\INDUMASTER");
+        //conexion ISAAC
+          Conexion.setCadena("jdbc:sqlite:C:\\Users\\Isaac\\Desktop\\INDUMASTERSA.db");
         Conexion.setUsuario("root");
             Conexion.setPass(" ");
     }
