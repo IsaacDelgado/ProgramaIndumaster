@@ -125,7 +125,7 @@ public class Producto {
      * @param iva new value of iva
      */
     public void setIva(double iva) {
-        iva=costo*0.12;
+       //iva=costo*0.12;
         this.iva = iva;
     }
 
@@ -167,7 +167,7 @@ public class Producto {
      * @param precio new value of precio
      */
     public void setPrecio(double precio) {
-        precio=costo+iva;
+        //precio=costo+iva;
         this.precio = precio;
     }
 

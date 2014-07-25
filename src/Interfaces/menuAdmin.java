@@ -28,16 +28,17 @@ public class menuAdmin extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnEmpleadoIrA = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         btnProductoIrA = new javax.swing.JButton();
         btnRegresarIr = new javax.swing.JButton();
+        btnEmpleadoIrA = new javax.swing.JButton();
 
-        btnEmpleadoIrA.setText("Empleado");
-        btnEmpleadoIrA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEmpleadoIrAActionPerformed(evt);
-            }
-        });
+        setBackground(java.awt.Color.black);
+
+        jPanel1.setBackground(new java.awt.Color(54, 50, 50));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/indumasterMenu.jpg"))); // NOI18N
 
         btnProductoIrA.setText("Producto");
         btnProductoIrA.addActionListener(new java.awt.event.ActionListener() {
@@ -53,28 +54,58 @@ public class menuAdmin extends javax.swing.JInternalFrame {
             }
         });
 
+        btnEmpleadoIrA.setText("Empleado");
+        btnEmpleadoIrA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEmpleadoIrAActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(347, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnRegresarIr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnProductoIrA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEmpleadoIrA, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabel1)
+                    .addContainerGap(113, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(btnEmpleadoIrA)
+                .addGap(39, 39, 39)
+                .addComponent(btnProductoIrA)
+                .addGap(48, 48, 48)
+                .addComponent(btnRegresarIr)
+                .addContainerGap(68, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRegresarIr)
-                    .addComponent(btnProductoIrA)
-                    .addComponent(btnEmpleadoIrA))
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(btnEmpleadoIrA)
-                .addGap(18, 18, 18)
-                .addComponent(btnProductoIrA)
-                .addGap(18, 18, 18)
-                .addComponent(btnRegresarIr)
-                .addContainerGap(44, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -106,5 +137,7 @@ public class menuAdmin extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnEmpleadoIrA;
     private javax.swing.JButton btnProductoIrA;
     private javax.swing.JButton btnRegresarIr;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

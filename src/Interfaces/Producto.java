@@ -7,12 +7,14 @@
 package Interfaces;
 
 import CapaGetion.GestionProducto;
+import ClasesPOCO.calcular;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
+
 /**
  *
- * @author Maria Belen
+ * @author Isaac
  */
 public class Producto extends javax.swing.JInternalFrame {
 
@@ -82,6 +84,11 @@ public class Producto extends javax.swing.JInternalFrame {
         txtcostos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcostosActionPerformed(evt);
+            }
+        });
+        txtcostos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtcostosKeyReleased(evt);
             }
         });
 
@@ -245,8 +252,10 @@ public class Producto extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
  public void enviarValores(){
         GP.getProducto().setNumSerie(txtnserie.getText());
-        
+        GP.getProducto().setIva(Double.parseDouble(txtiva.getText()));
         GP.getProducto().setCosto(Double.parseDouble(txtcostos.getText()));
+        GP.getProducto().setPrecio(Double.parseDouble(txtprecio.getText()));
+        //GP.getProducto().setPrecioEspecial(Double.parseDouble(txtprecioespecial.getText()));
         GP.getProducto().setDescripcion(txtdescripcion.getText());
         GP.getProducto().setNombre(txtnombreproducto.getText());
        
@@ -283,14 +292,13 @@ public class Producto extends javax.swing.JInternalFrame {
         try
         {
             GP.Grabar();
-            GP.getProducto().setNumSerie(txtnserie.getText());
-            GP.Consultar();
-            pedirValores();
-            GP.Eliminar();
-            GP.getProducto().setIva(Double.parseDouble(txtiva.getText()));
-            GP.getProducto().setPrecio(Double.parseDouble(txtprecio.getText()));
-            GP.getProducto().setPrecioEspecial(Double.parseDouble(txtprecioespecial.getText()));
-            GP.GrabarPrecios();            
+//            GP.getProducto().setNumSerie(txtnserie.getText());
+//            GP.Consultar();
+//            pedirValores();
+//            GP.Eliminar();
+//            
+//            
+//            GP.GrabarPrecios();            
             
             
             JOptionPane.showMessageDialog(this, "El producto se registro correctamente");
@@ -357,6 +365,24 @@ public class Producto extends javax.swing.JInternalFrame {
         }
        
     }//GEN-LAST:event_txtcostosActionPerformed
+
+    private void txtcostosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcostosKeyReleased
+        // TODO add your handling code here:
+        String numero=txtcostos.getText();
+        if (numero.equals("")==false) {
+            calcular CPC=new calcular();
+        double costo=Double.parseDouble(txtcostos.getText());
+        txtiva.setText(Double.toString(CPC.obtenerIva(costo)));
+        double iva=Double.parseDouble(txtiva.getText());
+        txtprecio.setText(Double.toString(CPC.ObtenerPrecio(costo, iva)));
+        }
+        else{
+            txtiva.setText("");
+            txtprecio.setText("");
+                    }
+        
+        
+    }//GEN-LAST:event_txtcostosKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

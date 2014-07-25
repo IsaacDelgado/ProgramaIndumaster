@@ -55,7 +55,7 @@ public class GestionProducto implements IGestiones{
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     try{
     Conexion.GetInstancia().Conectar();
-    Conexion.GetInstancia().Ejecutar("insert into producto(nombre,descripcion,costo,numeroSerie) values ('"+this.producto.getNombre()+"','"+this.producto.getDescripcion()+"',"+this.producto.getCosto()+",'"+this.producto.getNumSerie()+"')");
+    Conexion.GetInstancia().Ejecutar("insert into producto(nombre,descripcion,costo,numeroSerie,iva,precio) values ('"+this.producto.getNombre()+"','"+this.producto.getDescripcion()+"',"+this.producto.getCosto()+",'"+this.producto.getNumSerie()+"','"+this.producto.getIva()+"','"+this.producto.getPrecio()+"')");
     Conexion.GetInstancia().Desconectar();
     }
     catch(SQLException e)
