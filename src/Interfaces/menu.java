@@ -41,7 +41,7 @@ public class menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/IndumasterFondo.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/IndumasterFondo.png"))); // NOI18N
 
         javax.swing.GroupLayout jDPEscritorioLayout = new javax.swing.GroupLayout(jDPEscritorio);
         jDPEscritorio.setLayout(jDPEscritorioLayout);
@@ -64,7 +64,7 @@ public class menu extends javax.swing.JFrame {
             }
         });
 
-        jMenuItemAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/loginAdmin.png"))); // NOI18N
+        jMenuItemAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/loginAdmin.png"))); // NOI18N
         jMenuItemAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemAdminActionPerformed(evt);
@@ -72,10 +72,10 @@ public class menu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItemAdmin);
 
-        jMenuItemEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/EMPLEADO LOGIN.png"))); // NOI18N
+        jMenuItemEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/EMPLEADO LOGIN.png"))); // NOI18N
         jMenu1.add(jMenuItemEmpleado);
 
-        jMenuItemSalir.setText("Salir");
+        jMenuItemSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logosalir.png"))); // NOI18N
         jMenuItemSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemSalirActionPerformed(evt);

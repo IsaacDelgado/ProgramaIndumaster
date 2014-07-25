@@ -38,7 +38,7 @@ public class menuAdmin extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(54, 50, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/indumasterMenu.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/indumasterMenu.jpg"))); // NOI18N
 
         btnProductoIrA.setText("Producto");
         btnProductoIrA.addActionListener(new java.awt.event.ActionListener() {
