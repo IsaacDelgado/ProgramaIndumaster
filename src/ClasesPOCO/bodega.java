@@ -12,13 +12,14 @@ package ClasesPOCO;
  */
 public class bodega {
 
-    public bodega(String fechaSalida, String fechaIngreso, String area, int idEmpleado, int idBodega) {
+    public bodega(String fechaSalida, String fechaIngreso, String area, int idBodega) {
         this.fechaSalida = fechaSalida;
         this.fechaIngreso = fechaIngreso;
         this.area = area;
-        this.idEmpleado = idEmpleado;
         this.idBodega = idBodega;
     }
+
+   
     
     
     private String fechaSalida;
@@ -81,26 +82,7 @@ public class bodega {
         this.area = area;
     }
 
-    private int idEmpleado;
-
-    /**
-     * Get the value of idEmpleado
-     *
-     * @return the value of idEmpleado
-     */
-    public int getIdEmpleado() {
-        return idEmpleado;
-    }
-
-    /**
-     * Set the value of idEmpleado
-     *
-     * @param idEmpleado new value of idEmpleado
-     */
-    public void setIdEmpleado(int idEmpleado) {
-        this.idEmpleado = idEmpleado;
-    }
-
+    
     private int idBodega;
 
     /**
