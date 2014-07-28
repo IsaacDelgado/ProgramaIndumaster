@@ -130,7 +130,7 @@ public class menu extends javax.swing.JFrame {
 
     private void jMenuItemEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEmpleadoActionPerformed
         // TODO add your handling code here:
-        Factura ir= new Factura();
+        menuEmpleado ir= new menuEmpleado();
         jDPEscritorio.add(ir);
         ir.show();
     }//GEN-LAST:event_jMenuItemEmpleadoActionPerformed

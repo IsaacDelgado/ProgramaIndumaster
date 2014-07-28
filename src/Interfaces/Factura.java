@@ -6,19 +6,40 @@
 
 package Interfaces;
 
+import CapaGetion.GestionCabeceraFactura;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Maria Belen
  */
 public class Factura extends javax.swing.JInternalFrame {
-
+    GestionCabeceraFactura GCF=new GestionCabeceraFactura();
     /**
      * Creates new form Factura
      */
     public Factura() {
         initComponents();
     }
-
+public void enviarValoresCabecera(){
+        GCF.getClient().setCedula(txtRUC.getText());
+        GCF.getClient().setNombres(txtNombreCliente.getText());
+        GCF.getClient().setDireccion(txtDireccion.getText());
+        GCF.getFact().setCodigo(txtNumFactura.getText());
+        GCF.getFact().setFechaFactura(txtFecha.getText());
+ }
+ public void pedirValoresCabecera(){
+     txtNombreCliente.setText(GCF.getClient().getNombres());
+     txtRUC.setText(GCF.getClient().getCedula());
+     txtDireccion.setText(GCF.getClient().getDireccion());
+     txtNumFactura.setText(GCF.getFact().getCodigo());
+     txtFecha.setText(GCF.getFact().getFechaFactura());
+        
+        
+           
+ 
+ }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -72,6 +93,28 @@ public class Factura extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("Cambria Math", 3, 14)); // NOI18N
         jLabel2.setText("Fecha");
+
+        txtRUC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRUCActionPerformed(evt);
+            }
+        });
+        txtRUC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtRUCKeyReleased(evt);
+            }
+        });
+
+        txtNombreCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreClienteActionPerformed(evt);
+            }
+        });
+        txtNombreCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreClienteKeyReleased(evt);
+            }
+        });
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -263,21 +306,36 @@ public class Factura extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(204, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(txtNumFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(216, 216, 216))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+ public void GrabarCabecera (){
+      enviarValoresCabecera();
+        try
+        {
+            GCF.Grabar();
+//                       
+            JOptionPane.showMessageDialog(this, "El producto se registro correctamente");
+        }
+        catch(SQLException ex)
+        {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+
+        }
+ 
+ }
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
 
         // TODO add your handling code here:
@@ -285,8 +343,39 @@ public class Factura extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+
         // TODO add your handling code here:
+        GrabarCabecera();
+        
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void txtRUCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRUCActionPerformed
+        // TODO add your handling code here:
+        if(txtRUC.getText()!=null){
+        GCF.getClient().setCedula(txtRUC.getText());
+        try
+        {
+            GCF.Consultar();
+            pedirValoresCabecera();
+
+        }
+        catch(SQLException ex){
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+        }
+    }//GEN-LAST:event_txtRUCActionPerformed
+
+    private void txtNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreClienteActionPerformed
+
+    private void txtNombreClienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreClienteKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreClienteKeyReleased
+
+    private void txtRUCKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRUCKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRUCKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

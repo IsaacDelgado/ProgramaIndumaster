@@ -10,12 +10,12 @@ package Interfaces;
  *
  * @author Isaac
  */
-public class menuAdmin extends javax.swing.JInternalFrame {
+public class menuEmpleado extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form menuAdmin
      */
-    public menuAdmin() {
+    public menuEmpleado() {
         initComponents();
     }
 
@@ -30,10 +30,9 @@ public class menuAdmin extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnProductoIrA = new javax.swing.JButton();
+        btnFactura = new javax.swing.JButton();
         btnRegresarIr = new javax.swing.JButton();
-        btnEmpleadoIrA = new javax.swing.JButton();
-        btnBodega = new javax.swing.JButton();
+        btnCliente = new javax.swing.JButton();
 
         setBackground(java.awt.Color.black);
 
@@ -41,10 +40,10 @@ public class menuAdmin extends javax.swing.JInternalFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/indumasterMenu.jpg"))); // NOI18N
 
-        btnProductoIrA.setText("Producto");
-        btnProductoIrA.addActionListener(new java.awt.event.ActionListener() {
+        btnFactura.setText("Factura");
+        btnFactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProductoIrAActionPerformed(evt);
+                btnFacturaActionPerformed(evt);
             }
         });
 
@@ -55,17 +54,10 @@ public class menuAdmin extends javax.swing.JInternalFrame {
             }
         });
 
-        btnEmpleadoIrA.setText("Empleado");
-        btnEmpleadoIrA.addActionListener(new java.awt.event.ActionListener() {
+        btnCliente.setText("Cliente");
+        btnCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEmpleadoIrAActionPerformed(evt);
-            }
-        });
-
-        btnBodega.setText("Bodega");
-        btnBodega.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBodegaActionPerformed(evt);
+                btnClienteActionPerformed(evt);
             }
         });
 
@@ -77,9 +69,8 @@ public class menuAdmin extends javax.swing.JInternalFrame {
                 .addContainerGap(347, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnRegresarIr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnProductoIrA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEmpleadoIrA, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                    .addComponent(btnBodega, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -91,14 +82,12 @@ public class menuAdmin extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addComponent(btnEmpleadoIrA)
+                .addComponent(btnCliente)
                 .addGap(39, 39, 39)
-                .addComponent(btnProductoIrA)
-                .addGap(14, 14, 14)
-                .addComponent(btnBodega)
-                .addGap(18, 18, 18)
+                .addComponent(btnFactura)
+                .addGap(55, 55, 55)
                 .addComponent(btnRegresarIr)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -122,40 +111,31 @@ public class menuAdmin extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEmpleadoIrAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadoIrAActionPerformed
+    private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
         // TODO add your handling code here:
-        registroEmpleado llamar=new registroEmpleado();
+        registroClientes llamar=new registroClientes();
         menu.jDPEscritorio.add(llamar);
         llamar.toFront();
         llamar.setVisible(true);
-    }//GEN-LAST:event_btnEmpleadoIrAActionPerformed
+    }//GEN-LAST:event_btnClienteActionPerformed
 
-    private void btnProductoIrAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductoIrAActionPerformed
+    private void btnFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturaActionPerformed
         // TODO add your handling code here:
-        Producto llamar=new Producto();
+        Factura llamar=new Factura();
         menu.jDPEscritorio.add(llamar);
         llamar.toFront();
         llamar.setVisible(true);
-    }//GEN-LAST:event_btnProductoIrAActionPerformed
+    }//GEN-LAST:event_btnFacturaActionPerformed
 
     private void btnRegresarIrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarIrActionPerformed
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnRegresarIrActionPerformed
 
-    private void btnBodegaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBodegaActionPerformed
-        // TODO add your handling code here:
-        Bodega llamar=new Bodega();
-        menu.jDPEscritorio.add(llamar);
-        llamar.toFront();
-        llamar.setVisible(true);
-    }//GEN-LAST:event_btnBodegaActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBodega;
-    private javax.swing.JButton btnEmpleadoIrA;
-    private javax.swing.JButton btnProductoIrA;
+    private javax.swing.JButton btnCliente;
+    private javax.swing.JButton btnFactura;
     private javax.swing.JButton btnRegresarIr;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
