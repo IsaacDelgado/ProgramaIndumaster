@@ -73,6 +73,11 @@ public class menu extends javax.swing.JFrame {
         jMenu1.add(jMenuItemAdmin);
 
         jMenuItemEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/EMPLEADO LOGIN.png"))); // NOI18N
+        jMenuItemEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemEmpleadoActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItemEmpleado);
 
         jMenuItemSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logosalir.png"))); // NOI18N
@@ -122,6 +127,13 @@ public class menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jMenuItemSalirActionPerformed
+
+    private void jMenuItemEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEmpleadoActionPerformed
+        // TODO add your handling code here:
+        Factura ir= new Factura();
+        jDPEscritorio.add(ir);
+        ir.show();
+    }//GEN-LAST:event_jMenuItemEmpleadoActionPerformed
 
     /**
      * @param args the command line arguments
