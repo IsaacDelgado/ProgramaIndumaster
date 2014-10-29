@@ -122,4 +122,67 @@ public class Factura
         this.Codigo = Codigo;
     }
 
+    private Cliente idCliente;
+
+    /**
+     * Get the value of idCliente
+     *
+     * @return the value of idCliente
+     */
+    public Cliente getIdCliente() {
+        return idCliente;
+    }
+
+    /**
+     * Set the value of idCliente
+     *
+     * @param idCliente new value of idCliente
+     */
+    public void setIdCliente(Cliente idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    private Empleado idEmpleado;
+
+    /**
+     * Get the value of idEmpleado
+     *
+     * @return the value of idEmpleado
+     */
+    public Empleado getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    /**
+     * Set the value of idEmpleado
+     *
+     * @param idEmpleado new value of idEmpleado
+     */
+    public void setIdEmpleado(Empleado idEmpleado) {
+        this.idEmpleado = idEmpleado;
+    }
+
+    private List<Producto> idProducto;
+
+    /**
+     * Get the value of idProducto
+     *
+     * @return the value of idProducto
+     */
+    public List<Producto> getIdProducto() {
+        return idProducto;
+    }
+
+    /**
+     * Set the value of idProducto
+     *
+     * @param idProducto new value of idProducto
+     */
+    public void setIdProducto(List<Producto> idProducto) {
+        this.idProducto = idProducto;
+    }
+
 }
+
+
+

@@ -6,6 +6,8 @@
 
 package ClasesPOCO;
 
+import java.util.List;
+
 /**
  *
  * @author V1C70R MU3N735
@@ -20,7 +22,46 @@ public class bodega {
     }
 
    
-    
+        private List<Producto> idProducto;
+
+    /**
+     * Get the value of idProducto
+     *
+     * @return the value of idProducto
+     */
+    public List<Producto> getIdProducto() {
+        return idProducto;
+    }
+
+    /**
+     * Set the value of idProducto
+     *
+     * @param idProducto new value of idProducto
+     */
+    public void setIdProducto(List<Producto> idProducto) {
+        this.idProducto = idProducto;
+    }
+
+    private Empleado idEmpleado;
+
+    /**
+     * Get the value of idEmpleado
+     *
+     * @return the value of idEmpleado
+     */
+    public Empleado getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    /**
+     * Set the value of idEmpleado
+     *
+     * @param idEmpleado new value of idEmpleado
+     */
+    public void setIdEmpleado(Empleado idEmpleado) {
+        this.idEmpleado = idEmpleado;
+    }
+
     
     private String fechaSalida;
 

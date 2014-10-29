@@ -7,6 +7,7 @@
 package ClasesPOCO;
 
 import java.sql.Date;
+import java.util.List;
 
 /**
  *
@@ -25,18 +26,50 @@ public class Empleado extends Persona{
     }
 
    
+    
+    private bodega idBodega;
 
-  
+    /**
+     * Get the value of idBodega
+     *
+     * @return the value of idBodega
+     */
+    public bodega getIdBodega() {
+        return idBodega;
+    }
+
+    /**
+     * Set the value of idBodega
+     *
+     * @param idBodega new value of idBodega
+     */
+    public void setIdBodega(bodega idBodega) {
+        this.idBodega = idBodega;
+    }
+
+      private List<Factura> idFactura;
+
+    /**
+     * Get the value of idFactura
+     *
+     * @return the value of idFactura
+     */
+    public List<Factura> getIdFactura() {
+        return idFactura;
+    }
+
+    /**
+     * Set the value of idFactura
+     *
+     * @param idFactura new value of idFactura
+     */
+    public void setIdFactura(List<Factura> idFactura) {
+        this.idFactura = idFactura;
+    }
+
    
     private int idEmpleado;
 
-   
-
-    
-
-    
-
-      
     /**
      * Get the value of idEmpleado
      *

@@ -6,6 +6,8 @@
 
 package ClasesPOCO;
 
+import java.util.List;
+
 /**
  *
  * @author Isaac
@@ -189,6 +191,45 @@ public class Producto {
      */
     public void setPrecioEspecial(double precioEspecial) {
         this.precioEspecial = precioEspecial;
+    }
+
+    private bodega idBodega;
+
+    /**
+     * Get the value of idBodega
+     *
+     * @return the value of idBodega
+     */
+    public bodega getIdBodega() {
+        return idBodega;
+    }
+
+    /**
+     * Set the value of idBodega
+     *
+     * @param idBodega new value of idBodega
+     */
+    public void setIdBodega(bodega idBodega) {
+        this.idBodega = idBodega;
+    }
+    private List<Producto> idProducto;
+
+    /**
+     * Get the value of idProducto
+     *
+     * @return the value of idProducto
+     */
+    public List<Producto> getIdProducto() {
+        return idProducto;
+    }
+
+    /**
+     * Set the value of idProducto
+     *
+     * @param idProducto new value of idProducto
+     */
+    public void setIdProducto(List<Producto> idProducto) {
+        this.idProducto = idProducto;
     }
 
 }

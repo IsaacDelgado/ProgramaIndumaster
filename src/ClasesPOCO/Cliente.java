@@ -6,6 +6,8 @@
 
 package ClasesPOCO;
 
+import java.util.List;
+
 /**
  *
  * @author V1C70R MU3N735
@@ -16,7 +18,26 @@ public class Cliente extends Persona{
         super(direccion, sexo, telefono, correo, apellidos, nombres, cedula);
     }
 
-   
+     private List<Factura> ListaFactura;
+
+    /**
+     * Get the value of ListaFactura
+     *
+     * @return the value of ListaFactura
+     */
+    public List<Factura> getListaFactura() {
+        return ListaFactura;
+    }
+
+    /**
+     * Set the value of ListaFactura
+     *
+     * @param ListaFactura new value of ListaFactura
+     */
+    public void setListaFactura(List<Factura> ListaFactura) {
+        this.ListaFactura = ListaFactura;
+    }
+  
 
     
 
