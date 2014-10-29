@@ -17,7 +17,7 @@ public class OrdenCompra {
         this.cantidad = cantidad;
         this.fechaCompra = fechaCompra;
         this.idBodega = idBodega;
-        this.stringidProveedor = stringidProveedor;
+        this.idProveedor = stringidProveedor;
     }
     
     
