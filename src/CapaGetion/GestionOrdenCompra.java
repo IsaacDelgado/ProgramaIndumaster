@@ -6,7 +6,7 @@
 package CapaGetion;
 
 import CapaDatos.Conexion;
-import ClasesPOCO.OrdenProduccion;
+import ClasesPOCO.OrdenCompra;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,45 +15,47 @@ import java.util.logging.Logger;
  *
  * @author Isaac
  */
-public class GestionOrdenProduccion implements IGestiones{
-    public GestionOrdenProduccion() {
+public class GestionOrdenCompra implements IGestiones{
+
+    public GestionOrdenCompra() {
          try {
             Conexion.GetInstancia().Enlace();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(GestionOrdenProduccion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GestionOrdenCompra.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
     }
-     private OrdenProduccion ordenProduccion=new OrdenProduccion(null, null,0, null, 0, null, null,0);
-    public OrdenProduccion getOrdenProduccion()
+     private OrdenCompra ordenCompra=new OrdenCompra(0, null,0, null, 0,0);
+    public OrdenCompra getorOrdenCompra()
     {
-    return ordenProduccion;
+    return ordenCompra;
     }
-    public void setOrdenProduccion(OrdenProduccion ordenProduccion)
+    public void setOrdenCompra(OrdenCompra ordenCompra)
     {
-    this.ordenProduccion=ordenProduccion;
+    this.ordenCompra=ordenCompra;
     }
-
+    
     @Override
     public void Grabar() throws SQLException {
         try{  
     Conexion.GetInstancia().Conectar();
-   Conexion.GetInstancia().Ejecutar("insert into ordenProduccion(numeroOrden ,nombreProducto,cantidad,fecchaEmicion,fechaEntrega,idEmpleado,idBodega) values "
-           + "('"+this.ordenProduccion.getNumeroOrdenProduccion()+"',"
-           + "'"+this.ordenProduccion.getListaProducto()+"',"
-           + "'"+this.ordenProduccion.getCantidad()+"',"
-           + "'"+this.ordenProduccion.getFechaPedido()+"',"
-           + "'"+this.ordenProduccion.getFechaEntrega()+"'"
-           + "'"+this.ordenProduccion.getIdEmpleado()+"',"
-           + "'"+this.ordenProduccion.getIdBodega()+"')");
+   Conexion.GetInstancia().Ejecutar("insert into ordenProduccion(numeroOrdenCompra ,nombreMateriaPrima,cantidad,fechaCompra,idBodega,idProveedor) values "
+           + "('"+this.ordenCompra.getNumeroOrdenCompra()+"',"
+           + "'"+this.ordenCompra.getNombreMateriaPrima()+"',"
+           + "'"+this.ordenCompra.getCantidad()+"',"
+           + "'"+this.ordenCompra.getFechaCompra()+"',"
+           + "'"+this.ordenCompra.getIdBodega()+"'"
+           + "'"+this.ordenCompra.getIdProveedor()+"',"
+           + ")");
     Conexion.GetInstancia().Desconectar();
     }
     catch(SQLException e)
     {
     throw e;
     }
-        }
+     }
+    
 
     @Override
     public void Modificar() throws SQLException {

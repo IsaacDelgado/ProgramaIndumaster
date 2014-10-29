@@ -122,24 +122,24 @@ public class OrdenCompra {
         this.idBodega = idBodega;
     }
 
-    private int stringidProveedor;
+    private int idProveedor;
 
     /**
      * Get the value of stringidProveedor
      *
      * @return the value of stringidProveedor
      */
-    public int getStringidProveedor() {
-        return stringidProveedor;
+    public int getIdProveedor() {
+        return idProveedor;
     }
 
     /**
      * Set the value of stringidProveedor
      *
-     * @param stringidProveedor new value of stringidProveedor
+     * @param idProveedor new value of stringidProveedor
      */
-    public void setStringidProveedor(int stringidProveedor) {
-        this.stringidProveedor = stringidProveedor;
+    public void setIdProveedor(int idProveedor) {
+        this.idProveedor = idProveedor;
     }
 
 }
