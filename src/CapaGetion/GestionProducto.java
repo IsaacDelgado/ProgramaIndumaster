@@ -151,5 +151,34 @@ public class GestionProducto implements IGestiones{
     }
     }
 
+    
+    
+    
+    public void Consultar2() throws SQLException {
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     try{
+    Conexion.GetInstancia().Conectar();
+        ResultSet consulta=Conexion.GetInstancia().EjectConsulta("select nombre,precio FROM producto WHERE numeroSerie = "+producto.getNumSerie());
+   while(consulta.next())
+   {
+    //this.producto.setNumSerie(consulta.getString(4));
+    this.producto.setNombre(consulta.getString(7));
+    this.producto.setPrecio(consulta.getDouble(5));
+   }
+        Conexion.GetInstancia().Desconectar();
+    }
+    catch(SQLException e)
+    {
+    throw e;
+    }
+    }
+    
+    
+    
+    
+    
+    
+    
 }
     
