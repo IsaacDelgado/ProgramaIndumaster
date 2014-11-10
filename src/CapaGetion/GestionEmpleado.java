@@ -129,6 +129,27 @@ public class GestionEmpleado implements IGestiones{
     throw e;
     }
     }
+    
+    
+    public void ConsultarEP() throws SQLException {
+    //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    try{
+    Conexion.GetInstancia().Conectar();
+        ResultSet consulta=Conexion.GetInstancia().EjectConsulta("select usuario,pass FROM empleado WHERE usuario ="+empleado.getUsuario()+ "and pass = "+empleado.getPass());
+         while(consulta.next())
+         {
+              this.empleado.setUsuario(consulta.getString(12));
+              this.empleado.setPass(consulta.getString(13));  
+         }
+              Conexion.GetInstancia().Desconectar();
+          }
+          catch(SQLException e)
+          {
+          throw e;
+           }
+    }
+    
+    
     }
     
 

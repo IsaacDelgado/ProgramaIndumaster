@@ -11,7 +11,6 @@ package Interfaces;
  * @author Isaac
  */
 public class menu extends javax.swing.JFrame {
-
     /**
      * Creates new form menu
      */
@@ -118,9 +117,9 @@ public class menu extends javax.swing.JFrame {
 
     private void jMenuItemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAdminActionPerformed
         // TODO add your handling code here:
-        menuAdmin a =new menuAdmin();
-        jDPEscritorio.add(a);
-        a.show();
+            menuAdmin a =new menuAdmin();
+            jDPEscritorio.add(a);
+            a.show(); 
     }//GEN-LAST:event_jMenuItemAdminActionPerformed
 
     private void jMenuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSalirActionPerformed
@@ -130,6 +129,9 @@ public class menu extends javax.swing.JFrame {
 
     private void jMenuItemEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEmpleadoActionPerformed
         // TODO add your handling code here:
+        /* in=new Login();
+        jDPEscritorio.add(in);
+        in.show();*/
         menuEmpleado ir= new menuEmpleado();
         jDPEscritorio.add(ir);
         ir.show();

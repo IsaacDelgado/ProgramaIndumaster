@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import ClasesPOCO.Producto;
 
 /**
  *
@@ -68,7 +69,29 @@ public class GestionCabeceraFactura implements IGestiones{
     public void setClient(Cliente client) {
         this.client = client;
     }
+    
+        private Producto prod;
 
+    /**
+     * Get the value of prod
+     *
+     * @return the value of prod
+     */
+    public Producto getProd() {
+        return prod;
+    }
+
+    /**
+     * Set the value of prod
+     *
+     * @param prod new value of prod
+     */
+    public void setProd(Producto prod) {
+        this.prod = prod;
+    }
+
+    
+    
     @Override
     public void Grabar() throws SQLException {
       //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -122,6 +145,6 @@ public class GestionCabeceraFactura implements IGestiones{
     {
     throw e;
     }
-    }
-    
+    }    
+        
 }

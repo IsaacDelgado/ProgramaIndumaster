@@ -150,9 +150,6 @@ public class GestionProducto implements IGestiones{
     throw e;
     }
     }
-
-    
-    
     
     public void Consultar2() throws SQLException {
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -163,8 +160,8 @@ public class GestionProducto implements IGestiones{
    while(consulta.next())
    {
     //this.producto.setNumSerie(consulta.getString(4));
-    this.producto.setNombre(consulta.getString(7));
-    this.producto.setPrecio(consulta.getDouble(5));
+    this.producto.setNombre(consulta.getString("nombre"));
+    this.producto.setPrecio(Double.parseDouble(consulta.getString("precio")));
    }
         Conexion.GetInstancia().Desconectar();
     }
