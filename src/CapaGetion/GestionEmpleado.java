@@ -9,10 +9,14 @@ package CapaGetion;
 import CapaDatos.Conexion;
 
 import ClasesPOCO.Empleado;
+import static Interfaces.menu.jDPEscritorio;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import Interfaces.menuEmpleado;
+import Interfaces.loginMenu;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -131,22 +135,31 @@ public class GestionEmpleado implements IGestiones{
     }
     
     
-    public void ConsultarEP() throws SQLException {
+    public void ConsultarEP(String user, String clave) throws SQLException {
     //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     try{
     Conexion.GetInstancia().Conectar();
-        ResultSet consulta=Conexion.GetInstancia().EjectConsulta("select usuario,pass FROM empleado WHERE usuario ="+empleado.getUsuario()+ "and pass = "+empleado.getPass());
-         while(consulta.next())
-         {
-              this.empleado.setUsuario(consulta.getString(12));
-              this.empleado.setPass(consulta.getString(13));  
-         }
-              Conexion.GetInstancia().Desconectar();
-          }
-          catch(SQLException e)
-          {
-          throw e;
-           }
+        ResultSet consulta=Conexion.GetInstancia().EjectConsulta("select usuario,pass FROM empleado WHERE pass = '"+empleado.getPass()+"' and usuario='"+empleado.getUsuario()+"'");      
+        if(consulta.next())
+   {
+       JOptionPane.showMessageDialog(null, "Bienvenido");
+       
+    //this.producto.setNumSerie(consulta.getString(4));
+   /* this.empleado.setUsuario(consulta.getString("usuario"));
+    this.empleado.setPass(consulta.getString("pass"));*/
+            menuEmpleado ir= new menuEmpleado();
+            jDPEscritorio.add(ir);
+            ir.show();
+            this.empleado.setUsuario("");
+            this.empleado.setPass("");
+            
+   }
+        Conexion.GetInstancia().Desconectar();
+    }
+    catch(SQLException e)
+    {
+    throw e;
+    }
     }
     
     
