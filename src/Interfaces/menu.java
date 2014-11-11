@@ -129,12 +129,12 @@ public class menu extends javax.swing.JFrame {
 
     private void jMenuItemEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEmpleadoActionPerformed
         // TODO add your handling code here:
-        /* in=new Login();
+        loginMenu in=new loginMenu();
         jDPEscritorio.add(in);
-        in.show();*/
-        menuEmpleado ir= new menuEmpleado();
+        in.show();
+        /*menuEmpleado ir= new menuEmpleado();
         jDPEscritorio.add(ir);
-        ir.show();
+        ir.show();*/
     }//GEN-LAST:event_jMenuItemEmpleadoActionPerformed
 
     /**
