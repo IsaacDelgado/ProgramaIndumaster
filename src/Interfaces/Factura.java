@@ -26,8 +26,9 @@ public class Factura extends javax.swing.JInternalFrame {
     double precioUniProd;
     double precioTotProd;
     double IVA;
+    double contador;
+    double celdaTotal;
     double suma;
-    double totalSuma;
     DefaultTableModel tabla;
     /**
      * Creates new form Factura
@@ -431,16 +432,16 @@ public void enviarValoresCabecera(){
      {
          cantidadProd= Integer.parseInt(txtCantidadProducto.getText());
          precioTotProd=(cantidadProd*precioUniProd);
-       /*  suma=0;
-        totalSuma= tablaFact.getRowCount();
-        totalSuma-=1; 
-        for(int i=0;i<=(totalSuma);i++)
+         contador=0;
+        celdaTotal= tablaFact.getRowCount();
+        celdaTotal-=1; 
+        for(int i=0;i<=(celdaTotal);i++)
         {
-             double sumatoria= Double.parseDouble(String.valueOf(tablaFact.getValueAt(i,3)));
+              suma= Double.parseDouble(String.valueOf(tablaFact.getValueAt(i,3)));
         //en la parte de arriba indica el primer parametro la fila y el segundo la columna la cual estaras //manejando
-             suma+=sumatoria;         
+             contador+=suma;         
            }
-        txtTotal.setText(""+suma);*/
+        txtTotal.setText(""+contador);
      }
       public void pedirValores2(){
         //txtCodigoProducto.setText(GCF.getProd().getNumSerie());
@@ -474,10 +475,10 @@ public void enviarValoresCabecera(){
         txtCantidadProducto.setText(null);
         precioUniProd=0;
         precioTotProd=0;
-        txtDescuento.setText(null);
+       /* txtDescuento.setText(null);
         txtSubtotal.setText(null);
         txtTotal.setText(null);
-        txtIva.setText(null);
+        txtIva.setText(null);*/
         tabla.addRow(Datos);
         
         
