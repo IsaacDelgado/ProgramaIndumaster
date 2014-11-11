@@ -12,6 +12,7 @@ import CapaGetion.GestionProducto;
 import java.sql.SQLException;
 //import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,26 +21,35 @@ import javax.swing.JOptionPane;
 public class Factura extends javax.swing.JInternalFrame {
     GestionCabeceraFactura GCF=new GestionCabeceraFactura();
     GestionProducto GES=new GestionProducto();
-   /* String nombreProd;
+    String nombreProd;
     int cantidadProd;
     double precioUniProd;
-    double precioTotProd;*/
+    double precioTotProd;
+    double IVA;
+    double suma;
+    double totalSuma;
+    DefaultTableModel tabla;
     /**
      * Creates new form Factura
      */
     public Factura() {
         initComponents();
+        String data [] []={};
+        String cabeza []={"producto","cantidad", "precioUnitario","precioTotal"};
+        tabla = new DefaultTableModel(data,cabeza);
+        tablaFact.setModel(tabla);
+        
     }
 public void enviarValoresCabecera(){
-        GCF.getClient().setCedula(txtRUC.getText());
-        GCF.getClient().setNombres(txtNombreCliente.getText());
+        GCF.getClient().setCedula(txtNombreCliente.getText());
+        GCF.getClient().setNombres(txtCedulaCliente.getText());
         //GCF.getClient().setDireccion(txtDireccion.getText());
         GCF.getFact().setCodigo(txtNumFactura.getText());
         GCF.getFact().setFechaFactura(txtFecha.getText());
  }
  public void pedirValoresCabecera(){
-     txtNombreCliente.setText(GCF.getClient().getNombres());
-     txtRUC.setText(GCF.getClient().getCedula());
+     txtCedulaCliente.setText(GCF.getClient().getNombres());
+     txtNombreCliente.setText(GCF.getClient().getCedula());
      //txtDireccion.setText(GCF.getClient().getDireccion());
      txtNumFactura.setText(GCF.getFact().getCodigo());
      txtFecha.setText(GCF.getFact().getFechaFactura());
@@ -66,10 +76,9 @@ public void enviarValoresCabecera(){
         jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtRUC = new javax.swing.JTextField();
         txtNombreCliente = new javax.swing.JTextField();
+        txtCedulaCliente = new javax.swing.JTextField();
         txtFecha = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -81,7 +90,7 @@ public void enviarValoresCabecera(){
         txtSubtotal = new javax.swing.JTextField();
         txtTotal = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtDataTable = new javax.swing.JTable();
+        tablaFact = new javax.swing.JTable();
         btnSalir = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
@@ -100,24 +109,10 @@ public void enviarValoresCabecera(){
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel8.setFont(new java.awt.Font("Cambria Math", 3, 14)); // NOI18N
-        jLabel8.setText("Cliente:");
-
-        jLabel11.setFont(new java.awt.Font("Cambria Math", 3, 14)); // NOI18N
-        jLabel11.setText("Ruc:");
+        jLabel8.setText("Cédula Cliente:");
 
         jLabel2.setFont(new java.awt.Font("Cambria Math", 3, 14)); // NOI18N
         jLabel2.setText("Fecha");
-
-        txtRUC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRUCActionPerformed(evt);
-            }
-        });
-        txtRUC.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtRUCKeyReleased(evt);
-            }
-        });
 
         txtNombreCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +122,17 @@ public void enviarValoresCabecera(){
         txtNombreCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNombreClienteKeyReleased(evt);
+            }
+        });
+
+        txtCedulaCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedulaClienteActionPerformed(evt);
+            }
+        });
+        txtCedulaCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCedulaClienteKeyReleased(evt);
             }
         });
 
@@ -152,7 +158,7 @@ public void enviarValoresCabecera(){
 
         txtTotal.setEnabled(false);
 
-        txtDataTable.setModel(new javax.swing.table.DefaultTableModel(
+        tablaFact.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -166,7 +172,7 @@ public void enviarValoresCabecera(){
                 "Producto", "Cantidad", "P.Unitario", "P.Total"
             }
         ));
-        jScrollPane1.setViewportView(txtDataTable);
+        jScrollPane1.setViewportView(tablaFact);
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -189,39 +195,37 @@ public void enviarValoresCabecera(){
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(btnSalir)
-                        .addGap(35, 35, 35)
-                        .addComponent(btnRegistrar)
-                        .addGap(41, 41, 41)
-                        .addComponent(btnEliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtSubtotal)
-                                .addComponent(txtDescuento, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtIva, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(56, 56, 56)))
-                .addContainerGap())
+                .addGap(28, 28, 28)
+                .addComponent(btnSalir)
+                .addGap(35, 35, 35)
+                .addComponent(btnRegistrar)
+                .addGap(41, 41, 41)
+                .addComponent(btnEliminar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtSubtotal)
+                        .addComponent(txtDescuento, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIva, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(66, 66, 66))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -258,22 +262,22 @@ public void enviarValoresCabecera(){
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(txtRUC)
-                        .addGap(185, 185, 185)
-                        .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtNombreCliente)
+                                .addGap(140, 140, 140)
+                                .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(73, 73, 73))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(73, 73, 73))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 1, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 10, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,13 +285,11 @@ public void enviarValoresCabecera(){
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtRUC, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -348,7 +350,7 @@ public void enviarValoresCabecera(){
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txtCodigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCantidadProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -392,10 +394,10 @@ public void enviarValoresCabecera(){
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
-    private void txtRUCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRUCActionPerformed
+    private void txtNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreClienteActionPerformed
         // TODO add your handling code here:
-        if(txtRUC.getText()!=null){
-        GCF.getClient().setCedula(txtRUC.getText());
+        if(txtNombreCliente.getText()!=null){
+        GCF.getClient().setCedula(txtNombreCliente.getText());
         try
         {
             GCF.Consultar();
@@ -406,40 +408,78 @@ public void enviarValoresCabecera(){
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
         }
-    }//GEN-LAST:event_txtRUCActionPerformed
-
-    private void txtNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreClienteActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtNombreClienteActionPerformed
+
+    private void txtCedulaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaClienteActionPerformed
+
+    private void txtCedulaClienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaClienteKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaClienteKeyReleased
 
     private void txtNombreClienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreClienteKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreClienteKeyReleased
 
-    private void txtRUCKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRUCKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRUCKeyReleased
-
     
     
-     public void pedirValores2(){
-        //txtCodigoProducto.setText(GCF.getProd().getNumSerie());
-        txtNumFactura.setText(GES.getProducto().getNombre());
-        txtCantidadProducto.setText(Double.toString(GES.getProducto().getPrecio()));
- }
+    
      
+     public void Calcular()
+     {
+         cantidadProd= Integer.parseInt(txtCantidadProducto.getText());
+         precioTotProd=(cantidadProd*precioUniProd);
+       /*  suma=0;
+        totalSuma= tablaFact.getRowCount();
+        totalSuma-=1; 
+        for(int i=0;i<=(totalSuma);i++)
+        {
+             double sumatoria= Double.parseDouble(String.valueOf(tablaFact.getValueAt(i,3)));
+        //en la parte de arriba indica el primer parametro la fila y el segundo la columna la cual estaras //manejando
+             suma+=sumatoria;         
+           }
+        txtTotal.setText(""+suma);*/
+     }
+      public void pedirValores2(){
+        //txtCodigoProducto.setText(GCF.getProd().getNumSerie());
+       // txtNumFactura.setText(GES.getProducto().getNombre());
+       // txtCantidadProducto.setText(Double.toString(GES.getProducto().getPrecio()));
+        precioUniProd=GES.getProducto().getPrecio();
+        nombreProd=GES.getProducto().getNombre();
+        IVA=GES.getProducto().getIva();
+    }
     private void bntAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAgregarProductoActionPerformed
-        // TODO add your handling code here:    
+        // TODO add your handling code here:   
         GES.getProducto().setNumSerie(txtCodigoProducto.getText());
         try
         {
            GES.Consultar2();
            pedirValores2();
+          /* JOptionPane.showMessageDialog(null, GES.getProducto().getNombre());
+           JOptionPane.showMessageDialog(null, GES.getProducto().getPrecio());*/
         }
         catch(Exception ex)
         {
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
+        Calcular();
+        String []Datos=new String[4];
+        Datos[0]=nombreProd;        
+        Datos[1]=txtCantidadProducto.getText();        
+        Datos[2]=String.valueOf(precioUniProd);     
+        Datos[3]=String.valueOf(precioTotProd);        
+        txtCodigoProducto.setText(null);
+        txtCantidadProducto.setText(null);
+        precioUniProd=0;
+        precioTotProd=0;
+        txtDescuento.setText(null);
+        txtSubtotal.setText(null);
+        txtTotal.setText(null);
+        txtIva.setText(null);
+        tabla.addRow(Datos);
+        
         
     }//GEN-LAST:event_bntAgregarProductoActionPerformed
 
@@ -450,7 +490,6 @@ public void enviarValoresCabecera(){
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -462,15 +501,15 @@ public void enviarValoresCabecera(){
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tablaFact;
     private javax.swing.JTextField txtCantidadProducto;
+    private javax.swing.JTextField txtCedulaCliente;
     private javax.swing.JTextField txtCodigoProducto;
-    private javax.swing.JTable txtDataTable;
     private javax.swing.JTextField txtDescuento;
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtIva;
     private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtNumFactura;
-    private javax.swing.JTextField txtRUC;
     private javax.swing.JTextField txtSubtotal;
     private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
