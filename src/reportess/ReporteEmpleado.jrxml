@@ -79,7 +79,7 @@
 	<title>
 		<band height="51" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="bce29a83-ecc5-4f2f-b0f8-db1c217aeaa5" x="201" y="27" width="181" height="20"/>
+				<reportElement x="197" y="14" width="181" height="20" uuid="bce29a83-ecc5-4f2f-b0f8-db1c217aeaa5"/>
 				<textElement>
 					<font fontName="Cooper Black" size="14" isBold="true" isItalic="true"/>
 				</textElement>
@@ -93,16 +93,16 @@
 	<columnHeader>
 		<band height="276" splitType="Stretch">
 			<componentElement>
-				<reportElement uuid="84fe79a1-1099-41ff-a509-65de7ed26035" key="table 1" style="table 1" x="19" y="0" width="471" height="140"/>
+				<reportElement key="table 1" style="table 1" x="36" y="76" width="471" height="140" uuid="84fe79a1-1099-41ff-a509-65de7ed26035"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="empleado" uuid="c9bf3503-5a06-4299-a82c-749797d40a0e">
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
-					<jr:column uuid="e6c64b71-8388-4f67-af5f-38cfa398ccde" width="90">
+					<jr:column width="90" uuid="e6c64b71-8388-4f67-af5f-38cfa398ccde">
 						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
 						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="b424b6e9-1dfb-483d-8471-1db5d5bb18e8" x="0" y="0" width="90" height="30"/>
+								<reportElement x="0" y="0" width="90" height="30" uuid="b424b6e9-1dfb-483d-8471-1db5d5bb18e8"/>
 								<textElement textAlignment="Center"/>
 								<text><![CDATA[Nombres]]></text>
 							</staticText>
@@ -110,17 +110,17 @@
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
 						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
 							<textField>
-								<reportElement uuid="7e499368-4784-4d0b-bc1d-d97a750e0a77" x="0" y="0" width="90" height="20"/>
+								<reportElement x="0" y="0" width="90" height="20" uuid="7e499368-4784-4d0b-bc1d-d97a750e0a77"/>
 								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[""+$F{nombres}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column uuid="3ce307fd-b30d-448c-9031-038c46ba0bf7" width="90">
+					<jr:column width="90" uuid="3ce307fd-b30d-448c-9031-038c46ba0bf7">
 						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
 						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="e498c8ab-a991-40b8-b585-af732331e857" x="0" y="0" width="90" height="30"/>
+								<reportElement x="0" y="0" width="90" height="30" uuid="e498c8ab-a991-40b8-b585-af732331e857"/>
 								<textElement textAlignment="Center"/>
 								<text><![CDATA[Apellidos]]></text>
 							</staticText>
@@ -128,17 +128,17 @@
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
 						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
 							<textField>
-								<reportElement uuid="fb0095d2-4365-4ecd-9f2b-566afb8d2efd" x="0" y="0" width="90" height="20"/>
+								<reportElement x="0" y="0" width="90" height="20" uuid="fb0095d2-4365-4ecd-9f2b-566afb8d2efd"/>
 								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[""+$F{apellidos}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column uuid="3e7dea2d-eb15-43ae-8add-b503358ab4a1" width="90">
+					<jr:column width="90" uuid="3e7dea2d-eb15-43ae-8add-b503358ab4a1">
 						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
 						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="b64ff301-4298-4c77-b737-18f790181f53" x="0" y="0" width="90" height="30"/>
+								<reportElement x="0" y="0" width="90" height="30" uuid="b64ff301-4298-4c77-b737-18f790181f53"/>
 								<textElement textAlignment="Center"/>
 								<text><![CDATA[Telefono]]></text>
 							</staticText>
@@ -146,17 +146,17 @@
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
 						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
 							<textField>
-								<reportElement uuid="1160b118-37f5-4cc2-aba9-f6c305eaeef1" x="0" y="0" width="90" height="20"/>
+								<reportElement x="0" y="0" width="90" height="20" uuid="1160b118-37f5-4cc2-aba9-f6c305eaeef1"/>
 								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[""+$F{telefono}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column uuid="b3ed331c-0ece-49c9-8313-1c6c4bec166f" width="90">
+					<jr:column width="90" uuid="b3ed331c-0ece-49c9-8313-1c6c4bec166f">
 						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
 						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="276541b9-bb70-44e9-8e6e-f59634ed19b3" x="0" y="0" width="90" height="30"/>
+								<reportElement x="0" y="0" width="90" height="30" uuid="276541b9-bb70-44e9-8e6e-f59634ed19b3"/>
 								<textElement textAlignment="Center"/>
 								<text><![CDATA[Fecha de Ingreso]]></text>
 							</staticText>
@@ -164,17 +164,17 @@
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
 						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
 							<textField>
-								<reportElement uuid="6684a4b8-10d1-44e5-a013-2a7771b9381b" x="0" y="0" width="90" height="20"/>
+								<reportElement x="0" y="0" width="90" height="20" uuid="6684a4b8-10d1-44e5-a013-2a7771b9381b"/>
 								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[""+$F{fechaIngreso}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column uuid="27b60359-ab9d-4d04-8009-30195da1e6c8" width="90">
+					<jr:column width="90" uuid="27b60359-ab9d-4d04-8009-30195da1e6c8">
 						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
 						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="8852e6e2-7333-426b-a737-196a6eea7f04" x="0" y="0" width="90" height="30"/>
+								<reportElement x="0" y="0" width="90" height="30" uuid="8852e6e2-7333-426b-a737-196a6eea7f04"/>
 								<textElement textAlignment="Center"/>
 								<text><![CDATA[pass]]></text>
 							</staticText>
@@ -182,17 +182,17 @@
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
 						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
 							<textField>
-								<reportElement uuid="e42700e6-5227-42e4-b187-a7e4303e9fd1" x="0" y="0" width="90" height="20"/>
+								<reportElement x="0" y="0" width="90" height="20" uuid="e42700e6-5227-42e4-b187-a7e4303e9fd1"/>
 								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[""+$F{pass}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column uuid="3a2067a3-c594-4540-afdc-d14e8c3e3c2a" width="90">
+					<jr:column width="90" uuid="3a2067a3-c594-4540-afdc-d14e8c3e3c2a">
 						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
 						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="4c2d34a3-bb4e-4f90-916e-6dc07d574ef7" x="0" y="0" width="90" height="30"/>
+								<reportElement x="0" y="0" width="90" height="30" uuid="4c2d34a3-bb4e-4f90-916e-6dc07d574ef7"/>
 								<textElement textAlignment="Center"/>
 								<text><![CDATA[usuario]]></text>
 							</staticText>
@@ -200,7 +200,7 @@
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
 						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
 							<textField>
-								<reportElement uuid="f0e5c816-ecd7-4651-b48a-30537b7f6485" x="0" y="0" width="90" height="20"/>
+								<reportElement x="0" y="0" width="90" height="20" uuid="f0e5c816-ecd7-4651-b48a-30537b7f6485"/>
 								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[""+$F{usuario}]]></textFieldExpression>
 							</textField>

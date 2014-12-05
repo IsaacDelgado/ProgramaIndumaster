@@ -117,7 +117,7 @@ public class menu extends javax.swing.JFrame {
 
     private void jMenuItemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAdminActionPerformed
         // TODO add your handling code here:
-        loginMenu in=new loginMenu();
+        loginAdmin in=new loginAdmin();
         jDPEscritorio.add(in);
         in.show();
            /* menuAdmin a =new menuAdmin();

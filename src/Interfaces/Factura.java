@@ -52,8 +52,8 @@ public void enviarValoresCabecera(){
      txtCedulaCliente.setText(GCF.getClient().getNombres());
      txtNombreCliente.setText(GCF.getClient().getCedula());
      //txtDireccion.setText(GCF.getClient().getDireccion());
-     txtNumFactura.setText(GCF.getFact().getCodigo());
-     txtFecha.setText(GCF.getFact().getFechaFactura());
+     //txtNumFactura.setText(GCF.getFact().getCodigo());
+     //txtFecha.setText(GCF.getFact().getFechaFactura());
  }
  
  
@@ -105,7 +105,7 @@ public void enviarValoresCabecera(){
         setTitle("Factura");
 
         jLabel5.setFont(new java.awt.Font("Cambria Math", 3, 14)); // NOI18N
-        jLabel5.setText("Código");
+        jLabel5.setText("N. FACTURA");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -331,7 +331,7 @@ public void enviarValoresCabecera(){
                         .addGap(46, 46, 46)
                         .addComponent(bntAgregarProducto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNumFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)))
@@ -347,11 +347,11 @@ public void enviarValoresCabecera(){
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addComponent(txtNumFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txtCodigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCantidadProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -392,7 +392,7 @@ public void enviarValoresCabecera(){
 
         // TODO add your handling code here:
         GrabarCabecera();
-        
+        enviarValoresCabecera();
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreClienteActionPerformed
@@ -437,16 +437,13 @@ public void enviarValoresCabecera(){
         celdaTotal-=1; 
         for(int i=0;i<=(celdaTotal);i++)
         {
-              suma= Double.parseDouble(String.valueOf(tablaFact.getValueAt(i,3)));
-        //en la parte de arriba indica el primer parametro la fila y el segundo la columna la cual estaras //manejando
-             contador+=suma;         
+             suma= Double.parseDouble(String.valueOf(tablaFact.getValueAt(i,3)));
+             contador+=suma;   
+            
            }
-        txtTotal.setText(""+contador);
+       txtTotal.setText(""+contador);
      }
       public void pedirValores2(){
-        //txtCodigoProducto.setText(GCF.getProd().getNumSerie());
-       // txtNumFactura.setText(GES.getProducto().getNombre());
-       // txtCantidadProducto.setText(Double.toString(GES.getProducto().getPrecio()));
         precioUniProd=GES.getProducto().getPrecio();
         nombreProd=GES.getProducto().getNombre();
         IVA=GES.getProducto().getIva();
@@ -458,8 +455,6 @@ public void enviarValoresCabecera(){
         {
            GES.Consultar2();
            pedirValores2();
-          /* JOptionPane.showMessageDialog(null, GES.getProducto().getNombre());
-           JOptionPane.showMessageDialog(null, GES.getProducto().getPrecio());*/
         }
         catch(Exception ex)
         {

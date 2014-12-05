@@ -6,6 +6,13 @@
 
 package reportess;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
+
 /**
  *
  * @author Isaac
@@ -29,10 +36,31 @@ public class repotes extends javax.swing.JFrame {
     private void initComponents() {
 
         btnRCliente = new javax.swing.JButton();
+        btnREmpleado = new javax.swing.JButton();
+        btnRProdcuto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnRCliente.setText("Reporte Cliente");
+        btnRCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRClienteActionPerformed(evt);
+            }
+        });
+
+        btnREmpleado.setText("Rporte Empleado");
+        btnREmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnREmpleadoActionPerformed(evt);
+            }
+        });
+
+        btnRProdcuto.setText("Reporte Producto");
+        btnRProdcuto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRProdcutoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -40,19 +68,95 @@ public class repotes extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(68, 68, 68)
-                .addComponent(btnRCliente)
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRProdcuto)
+                    .addComponent(btnREmpleado)
+                    .addComponent(btnRCliente))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(btnRCliente)
-                .addContainerGap(243, Short.MAX_VALUE))
+                .addGap(41, 41, 41)
+                .addComponent(btnREmpleado)
+                .addGap(28, 28, 28)
+                .addComponent(btnRProdcuto)
+                .addContainerGap(128, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRClienteActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            Class.forName("org.sqlite.JDBC");
+            Connection conexion;
+            //String ruta = "C:\\Users\\Omar\\Documents\\GitHub\\reportess\\src\\reportess\\ReporteProducto.jasper";
+            String ruta = "C:\\Users\\Omar\\Documents\\GitHub\\ProgramaIndumaster\\src\\reportess\\ReporteCliente.jasper";
+            conexion = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Omar\\Desktop\\INDUMASTER");         
+            JasperReport reporte = null;
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(ruta);
+            JasperPrint jrp = JasperFillManager.fillReport(reporte, null, conexion);
+            JasperViewer jrv = new  JasperViewer(jrp);
+            jrv.setVisible(true);
+            //jrv.setTitle(ruta);
+            conexion.close();
+        }
+        catch(Exception ex)
+        {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }//GEN-LAST:event_btnRClienteActionPerformed
+
+    private void btnREmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnREmpleadoActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            Class.forName("org.sqlite.JDBC");
+            Connection conexion;
+            //String ruta = "C:\\Users\\Omar\\Documents\\GitHub\\reportess\\src\\reportess\\ReporteProducto.jasper";
+            String ruta = "C:\\Users\\Omar\\Documents\\GitHub\\ProgramaIndumaster\\src\\reportess\\ReporteEmpleado.jasper";
+            conexion = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Omar\\Desktop\\INDUMASTER");         
+            JasperReport reporte = null;
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(ruta);
+            JasperPrint jrp = JasperFillManager.fillReport(reporte, null, conexion);
+            JasperViewer jrv = new  JasperViewer(jrp);
+            jrv.setVisible(true);
+            //jrv.setTitle(ruta);
+            conexion.close();
+        }
+        catch(Exception ex)
+        {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }//GEN-LAST:event_btnREmpleadoActionPerformed
+
+    private void btnRProdcutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRProdcutoActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            Class.forName("org.sqlite.JDBC");
+            Connection conexion;
+            //String ruta = "C:\\Users\\Omar\\Documents\\GitHub\\reportess\\src\\reportess\\ReporteProducto.jasper";
+            String ruta = "C:\\Users\\Omar\\Documents\\GitHub\\ProgramaIndumaster\\src\\reportess\\ReporteProducto.jasper";
+            conexion = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Omar\\Desktop\\INDUMASTER");         
+            JasperReport reporte = null;
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(ruta);
+            JasperPrint jrp = JasperFillManager.fillReport(reporte, null, conexion);
+            JasperViewer jrv = new  JasperViewer(jrp);
+            jrv.setVisible(true);
+            //jrv.setTitle(ruta);
+            conexion.close();
+        }
+        catch(Exception ex)
+        {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }//GEN-LAST:event_btnRProdcutoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -91,5 +195,7 @@ public class repotes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRCliente;
+    private javax.swing.JButton btnREmpleado;
+    private javax.swing.JButton btnRProdcuto;
     // End of variables declaration//GEN-END:variables
 }

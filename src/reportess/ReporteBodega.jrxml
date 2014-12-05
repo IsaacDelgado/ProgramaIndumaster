@@ -128,7 +128,7 @@ FROM  bodega INNER JOIN
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="609961c5-2a72-4f1f-abcc-274be336d183" x="159" y="25" width="228" height="31"/>
+				<reportElement x="159" y="25" width="228" height="31" uuid="609961c5-2a72-4f1f-abcc-274be336d183"/>
 				<textElement>
 					<font fontName="Times New Roman" size="24" isBold="true" isItalic="true" isStrikeThrough="false"/>
 				</textElement>
@@ -142,83 +142,75 @@ FROM  bodega INNER JOIN
 	<columnHeader>
 		<band height="148" splitType="Stretch">
 			<componentElement>
-				<reportElement uuid="22b6c7e9-d6d8-4b45-8035-c1d8118c3a10" key="table 3" style="table 3" x="73" y="8" width="360" height="140"/>
+				<reportElement key="table 3" style="table 3" x="73" y="5" width="360" height="140" uuid="22b6c7e9-d6d8-4b45-8035-c1d8118c3a10"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="bodg" uuid="990eb0f4-2fef-481d-8c4a-757652b6acd9">
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
-					<jr:column uuid="37c97768-6225-4231-a27a-750620af0309" width="90">
+					<jr:column width="90" uuid="37c97768-6225-4231-a27a-750620af0309">
 						<jr:tableHeader style="table 3_TH" height="30"/>
 						<jr:tableFooter style="table 3_TH" height="30"/>
 						<jr:columnHeader style="table 3_CH" height="30">
 							<staticText>
-								<reportElement uuid="d7983345-0042-48fb-81a1-026f0245ff42" x="0" y="0" width="90" height="30"/>
-								<textElement/>
+								<reportElement x="0" y="0" width="90" height="30" uuid="d7983345-0042-48fb-81a1-026f0245ff42"/>
 								<text><![CDATA[EmpleadoEncargado]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 3_CH" height="30"/>
 						<jr:detailCell style="table 3_TD" height="20">
 							<textField>
-								<reportElement uuid="a17f0a5a-4322-44c6-b8af-9000cbb0f058" x="0" y="0" width="90" height="20"/>
-								<textElement/>
+								<reportElement x="0" y="0" width="90" height="20" uuid="a17f0a5a-4322-44c6-b8af-9000cbb0f058"/>
 								<textFieldExpression><![CDATA[""+$F{EmpleadoEncargado}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column uuid="7bdb5753-2b6d-4bba-bfe5-b8105ccc70b7" width="90">
+					<jr:column width="90" uuid="7bdb5753-2b6d-4bba-bfe5-b8105ccc70b7">
 						<jr:tableHeader style="table 3_TH" height="30"/>
 						<jr:tableFooter style="table 3_TH" height="30"/>
 						<jr:columnHeader style="table 3_CH" height="30">
 							<staticText>
-								<reportElement uuid="04483811-ad07-42d4-ab9d-6e9b76f2cf05" x="0" y="0" width="90" height="30"/>
-								<textElement/>
+								<reportElement x="0" y="0" width="90" height="30" uuid="04483811-ad07-42d4-ab9d-6e9b76f2cf05"/>
 								<text><![CDATA[fechaIngreso]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 3_CH" height="30"/>
 						<jr:detailCell style="table 3_TD" height="20">
 							<textField>
-								<reportElement uuid="037f058d-970f-4549-bba1-2fe785fa5e1b" x="0" y="0" width="90" height="20"/>
-								<textElement/>
+								<reportElement x="0" y="0" width="90" height="20" uuid="037f058d-970f-4549-bba1-2fe785fa5e1b"/>
 								<textFieldExpression><![CDATA[""+$F{fechaIngreso}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column uuid="a43f6134-830e-4359-a102-180f2c5c728c" width="90">
+					<jr:column width="90" uuid="a43f6134-830e-4359-a102-180f2c5c728c">
 						<jr:tableHeader style="table 3_TH" height="30"/>
 						<jr:tableFooter style="table 3_TH" height="30"/>
 						<jr:columnHeader style="table 3_CH" height="30">
 							<staticText>
-								<reportElement uuid="7bcae2de-2eed-43c2-b676-bde3980ca266" x="0" y="0" width="90" height="30"/>
-								<textElement/>
+								<reportElement x="0" y="0" width="90" height="30" uuid="7bcae2de-2eed-43c2-b676-bde3980ca266"/>
 								<text><![CDATA[fechaSalida]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 3_CH" height="30"/>
 						<jr:detailCell style="table 3_TD" height="20">
 							<textField>
-								<reportElement uuid="27500014-4691-4cac-bc0c-8603e0bde642" x="0" y="0" width="90" height="20"/>
-								<textElement/>
+								<reportElement x="0" y="0" width="90" height="20" uuid="27500014-4691-4cac-bc0c-8603e0bde642"/>
 								<textFieldExpression><![CDATA[""+$F{fechaSalida}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column uuid="23fd6aa0-9154-4c20-9aba-63c7e66a3e10" width="90">
+					<jr:column width="90" uuid="23fd6aa0-9154-4c20-9aba-63c7e66a3e10">
 						<jr:tableHeader style="table 3_TH" height="30"/>
 						<jr:tableFooter style="table 3_TH" height="30"/>
 						<jr:columnHeader style="table 3_CH" height="30">
 							<staticText>
-								<reportElement uuid="8414a815-e097-40e2-8119-345a7864b2ca" x="0" y="0" width="90" height="30"/>
-								<textElement/>
+								<reportElement x="0" y="0" width="90" height="30" uuid="8414a815-e097-40e2-8119-345a7864b2ca"/>
 								<text><![CDATA[Area]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 3_CH" height="30"/>
 						<jr:detailCell style="table 3_TD" height="20">
 							<textField>
-								<reportElement uuid="8806d662-dd9e-40e4-b326-78faecb15748" x="0" y="0" width="90" height="20"/>
-								<textElement/>
+								<reportElement x="0" y="0" width="90" height="20" uuid="8806d662-dd9e-40e4-b326-78faecb15748"/>
 								<textFieldExpression><![CDATA[""+$F{Area}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>

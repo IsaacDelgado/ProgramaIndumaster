@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Interfaces.menuEmpleado;
+import Interfaces.menuAdmin;
 import Interfaces.loginMenu;
 import javax.swing.JOptionPane;
 
@@ -137,29 +138,48 @@ public class GestionEmpleado implements IGestiones{
     
     public void ConsultarEP(String user, String clave) throws SQLException {
     //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    try{
-    Conexion.GetInstancia().Conectar();
-        ResultSet consulta=Conexion.GetInstancia().EjectConsulta("select usuario,pass FROM empleado WHERE pass = '"+empleado.getPass()+"' and usuario='"+empleado.getUsuario()+"'");      
-        if(consulta.next())
-   {
-       JOptionPane.showMessageDialog(null, "Bienvenido");
-       
-    //this.producto.setNumSerie(consulta.getString(4));
-   /* this.empleado.setUsuario(consulta.getString("usuario"));
-    this.empleado.setPass(consulta.getString("pass"));*/
-            menuEmpleado ir= new menuEmpleado();
-            jDPEscritorio.add(ir);
-            ir.show();
-            this.empleado.setUsuario("");
-            this.empleado.setPass("");
-            
-   }
-        Conexion.GetInstancia().Desconectar();
+        try{
+        Conexion.GetInstancia().Conectar();
+            ResultSet consulta=Conexion.GetInstancia().EjectConsulta("select usuario,pass,cargo FROM empleado WHERE pass = '"+empleado.getPass()+"' and usuario='"+empleado.getUsuario()+"'");      
+            if(consulta.next())
+            {
+                if((consulta.getString("cargo").equals("vendedor")))
+                {
+                     menuEmpleado ir= new menuEmpleado();
+                     jDPEscritorio.add(ir);
+                     ir.show();
+                }
+                
+            }
+            Conexion.GetInstancia().Desconectar();
+        }
+        catch(SQLException e)
+        {
+            throw e;
+        }
     }
-    catch(SQLException e)
-    {
-    throw e;
-    }
+    
+    
+    public void ConsultarAdmin(String user, String clave) throws SQLException {
+    //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+        Conexion.GetInstancia().Conectar();
+            ResultSet consulta=Conexion.GetInstancia().EjectConsulta("select usuario,pass,cargo FROM empleado WHERE pass = '"+empleado.getPass()+"' and usuario='"+empleado.getUsuario()+"'");      
+            if(consulta.next())
+            {
+                if((consulta.getString("cargo").equals("administrador")))
+                {
+                      menuAdmin ir= new menuAdmin();
+                        jDPEscritorio.add(ir);
+                        ir.show();
+                }
+            }
+            Conexion.GetInstancia().Desconectar();
+        }
+        catch(SQLException e)
+        {
+            throw e;
+        }
     }
     
     
